@@ -62,12 +62,28 @@
             from {opacity: .4} 
             to {opacity: 1}
         }
-        .waze-link, .phone-link, .gpt-link {
+        .waze-link, .phone-link, .gpt-link, .map-link {
             display: inline-block;
             margin: 0 10px; /* Space between the icons */
         }
-        .waze-link img, .phone-link img, .gpt-link img {
+        .waze-link img, .phone-link img, .gpt-link img, .map-link img {
             height: 50px;
+        }
+        .embed-container {
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+            margin: 20px auto; /* Center the container */
+            width: 100%;
+            max-width: 800px; /* Set the desired max width */
+        }
+        .embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
         footer {
             background-color: #003366;
@@ -101,6 +117,9 @@
             <a href="https://chatgpt.com/g/g-6773e0da1ff08191b3fc1dd6d9f2c380-mtvvkhym-b-p-lkysh" target="_blank" class="gpt-link">
                 <img src="images/gpt.png" alt="ChatGPT">
             </a>
+            <a href="https://www.google.com/maps/d/u/0/edit?mid=1aVmx7q5HlFris3QWdCKbGnyzMCVHVRQ&usp=sharing" target="_blank" class="map-link">
+                <img src="images/map.png" alt="Map">
+            </a>
         </div>
         <h2>Placeholder Content</h2>
         <div class="slideshow-container">
@@ -114,7 +133,9 @@
                 <img src="images/im3.png" alt="Slide 3">
             </div>
         </div>
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1aVmx7q5HlFris3QWdCKbGnyzMCVHVRQ&ehbc=2E312F" width="800" height="450"></iframe>
+        <div class="embed-container">
+            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1aVmx7q5HlFris3QWdCKbGnyzMCVHVRQ&ehbc=2E312F"></iframe>
+        </div>
     </section>
     <footer>
         <p>&copy; 2024 Your Website. All rights reserved.</p>

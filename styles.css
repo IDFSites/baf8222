@@ -1,0 +1,216 @@
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    -webkit-text-size-adjust: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: #003366;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+header img {
+    height: 80px;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+nav {
+    background-color: #00509e;
+    padding: 10px 0;
+}
+
+nav .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+}
+
+nav img {
+    height: 24px;
+    margin-left: 8px;
+}
+
+section {
+    padding: 15px;
+    text-align: center;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.slides {
+    display: none;
+    animation: fade 2s;
+}
+
+.slides img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+.waze-phone-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.waze-link,
+.phone-link,
+.gpt-link,
+.map-link {
+    display: inline-block;
+}
+
+.waze-link img,
+.phone-link img,
+.gpt-link img,
+.map-link img {
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.waze-link img:hover,
+.phone-link img:hover,
+.gpt-link img:hover,
+.map-link img:hover {
+    transform: scale(1.1);
+}
+
+.embed-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 75%; /* Adjusted for mobile */
+    margin: 15px auto;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* Media Queries for iPhone and other mobile devices */
+@media screen and (max-width: 768px) {
+    header img {
+        height: 60px;
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    nav {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    nav a {
+        width: 90%;
+        text-align: center;
+        margin: 3px 0;
+        padding: 10px;
+    }
+
+    .slides img {
+        height: 200px;
+    }
+
+    .waze-link img,
+    .phone-link img,
+    .gpt-link img,
+    .map-link img {
+        height: 35px;
+    }
+
+    .embed-container {
+        padding-top: 100%; /* Square aspect ratio for mobile */
+    }
+}
+
+/* iPhone-specific media query for smaller devices */
+@media screen and (max-width: 380px) {
+    header h1 {
+        font-size: 1rem;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+
+    .slides img {
+        height: 180px;
+    }
+
+    .waze-link img,
+    .phone-link img,
+    .gpt-link img,
+    .map-link img {
+        height: 30px;
+    }
+}
+
+#drive {
+    display: flex; justify-content: center;
+}

@@ -347,6 +347,12 @@ header h1 {
         font-size: 1.2rem;
     }
 
+    #welcome {
+        position: absolute;
+        top: 120px;
+
+    }
+
     .menu-btn {
         min-width: 44px;
         min-height: 44px;
@@ -354,14 +360,23 @@ header h1 {
         margin: -10px;
     }
 
+    .hero {
+        height: calc(100vh - 100px); /* Adjust height to ensure proper spacing */
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 6rem; /* Add space to account for quick-access icons */
+    }
+
     .hero-content {
         position: absolute;
-        top: 90px;
-        left: 0;
-        right: 0;
-        transform: none;
-        padding: 20px;
-        margin: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 2;
+        width: 100%;
+        padding: 0 20px;
+        pointer-events: none; /* Ensure quick-access icons do not interfere */
     }
 
     .hero-content h2 {
@@ -370,6 +385,7 @@ header h1 {
         white-space: normal;
         line-height: 1.2;
         margin-bottom: 1.5rem;
+        align-self: center;
     }
 
     .hero-content img {
@@ -413,9 +429,6 @@ header h1 {
         height: 40px;
     }
 
-    #welcome {
-        text-align: center;
-    }
 }
 
 .quick-access .home-link img {

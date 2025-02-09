@@ -1,73 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אתר בא״פ לכיש</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>בא״פ לכיש</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header>
     <div class="container">
-        <img src="images/image.png" alt="Logo">
-        <h1>ברוכים הבאים לבא״פ לכיש</h1>
+        <div class="header-content">
+            <img src="images/image.png" alt="Logo">
+            <h1>בא״פ לכיש</h1>
+            <button class="menu-btn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </div>
 </header>
-<nav>
-    <div class="container">
-        <a href="lehima.html">ביה״ס ללחימה</a>
-        <a href="hagnash.html">ביה״ס להגנ״ש</a>
-        <a href="nehiga.html">ביה״ס לנהיגה</a>
-        <a href="gashashim.html">ביה״ס לגששים</a>
-        <a href="https://safetyprod.azurewebsites.net"> בטיחות</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSczMrVOz_pTev4FcaAcLqKwGiQUHYSj-b916dhsPt8fOx9gyw/viewform?usp=header">תיאום אימון עצמאי</a>
-    </div>
+
+<nav class="home-nav">
+    <a href="lehima.html">ביה״ס ללחימה</a>
+    <a href="hagnash.html">ביה״ס להגנ״ש</a>
+    <a href="nehiga.html">ביה״ס לנהיגה</a>
+    <a href="gashashim.html">ביה״ס לגששים</a>
+    <a href="https://safetyprod.azurewebsites.net">בטיחות</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSczMrVOz_pTev4FcaAcLqKwGiQUHYSj-b916dhsPt8fOx9gyw/viewform">תיאום אימון עצמאי</a>
 </nav>
-<section>
-    <div class="container">
-        <div class="waze-phone-links">
-            <a href="https://waze.com/ul/hsv8gdq04d" target="_blank" class="waze-link"><img src="images/waze.png" alt="Waze"></a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbVpCwctd-ZZQymeun5TodDlGjEqnFYck7snwh_dzsWDRKhA/viewform?usp=header" target="_blank" class="door-link"><img src="images/door.png" alt="Door"></a>
-            <a href="tel:+97286853205" class="phone-link"><img src="images/phone.png" alt="Phone"></a>
-            <a href="https://chatgpt.com/g/g-6773e0da1ff08191b3fc1dd6d9f2c380-mtvvkhym-bp-lkysh" target="_blank" class="gpt-link"><img src="images/gpt.png" alt="ChatGPT"></a>
-            <a href="https://www.google.com/maps/d/u/0/edit?mid=1aVmx7q5HlFris3QWdCKbGnyzMCVHVRQ&usp=sharing" target="_blank" class="map-link"><img src="images/map.png" alt="Map"></a>
+
+<section class="hero">
+    <div class="slideshow-container">
+        <div class="slides">
+            <img src="images/im1.png" alt="Slide 1">
         </div>
-        <div class="slideshow-container">
-            <div class="slides">
-                <img src="images/im1.png" alt="Slide 1">
-            </div>
-            <div class="slides">
-                <img src="images/im2.png" alt="Slide 2">
-            </div>
-            <div class="slides">
-                <img src="images/im3.png" alt="Slide 3">
-            </div>
+        <div class="slides">
+            <img src="images/im2.png" alt="Slide 2">
         </div>
-        <div class="embed-container">
-            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1aVmx7q5HlFris3QWdCKbGnyzMCVHVRQ&ehbc=2E312F"></iframe>
+        <div class="slides">
+            <img src="images/im3.png" alt="Slide 3">
         </div>
+    </div>
+    <div id="welcome" class="hero-content">
+        <h2>ברוכים הבאים למרכז המצוינות</h2>
+        <img src="images/image.png" alt="Logo">
     </div>
 </section>
-<footer>
-    <div class="container">
-        <p>&copy; 2025 BAF 8222. All rights reserved.</p>
-    </div>
-</footer>
+
+<div class="quick-access">
+    <a href="https://waze.com/ul/hsv8gdq04d" target="_blank" class="waze-link">
+        <img src="images/waze.png" alt="Waze">
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbVpCwctd-ZZQymeun5TodDlGjEqnFYck7snwh_dzsWDRKhA/viewform" target="_blank" class="door-link">
+        <img src="images/door.png" alt="Door">
+    </a>
+    <a href="tel:+97286853205" class="phone-link">
+        <img src="images/phone.png" alt="Phone">
+    </a>
+    <a href="https://chatgpt.com/g/g-6773e0da1ff08191b3fc1dd6d9f2c380-mtvvkhym-bp-lkysh" target="_blank" class="gpt-link">
+        <img src="images/gpt.png" alt="ChatGPT">
+    </a>
+    <a href="https://www.google.com/maps/d/u/0/edit?mid=1aVmx7q5HlFris3QWdCKbGnyzMCVHVRQ" target="_blank" class="map-link">
+        <img src="images/map.png" alt="Map">
+    </a>
+</div>
+
 <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const navMenu = document.querySelector('.home-nav');  // Changed to home-nav
+
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
     let slideIndex = 0;
-    showSlides();
+    const slides = document.querySelectorAll('.slides');
 
     function showSlides() {
-        let i;
-        let slides = document.getElementsByClassName("slides");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}
-        slides[slideIndex-1].style.display = "block";
-        setTimeout(showSlides, 4000); // Change image every 4 seconds
+        slides.forEach(slide => slide.style.opacity = '0');
+        slideIndex = (slideIndex + 1) % slides.length;
+        slides[slideIndex].style.opacity = '1';
+        setTimeout(showSlides, 5000);
     }
+
+    showSlides();
 </script>
 </body>
 </html>

@@ -16,11 +16,16 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     margin: 0;
     padding: 0;
-    background: var(--bg-gradient);
+    background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.85),
+            rgba(25, 25, 25, 0.8)
+    );
+    background-color: var(--primary-color);
     color: var(--text-light);
     -webkit-font-smoothing: antialiased;
-    min-height: 100vh;
     position: relative;
+    min-height: 100vh;
 }
 
 /* Modern subtle grid overlay */
@@ -148,7 +153,7 @@ header h1 {
     transition: var(--transition);
     width: 80%;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 0;
     background: rgba(30, 58, 138, 0.3);
     border: 1px solid rgba(59, 130, 246, 0.1);
     position: relative;
@@ -208,7 +213,7 @@ header h1 {
     margin: 1rem 0;
     transition: var(--transition);
     padding: 0.8rem 2rem;
-    border-radius: 8px;
+    border-radius: 0;
     background: rgba(30, 58, 138, 0.2);
     border: 1px solid rgba(59, 130, 246, 0.1);
     position: relative;
@@ -252,7 +257,7 @@ header h1 {
     height: 100vh;
     position: relative;
     overflow: hidden;
-    padding-top: 60px;
+    padding-top: 180px; /* Increased to make room for the navigation buttons */
 }
 
 .slideshow-container {
@@ -299,107 +304,91 @@ header h1 {
     pointer-events: none;
 }
 
-/* Modern floating UI element */
-.quick-access {
+/* Nav Circle and Quick Buttons */
+.nav-circle {
     position: fixed;
-    top: 75px;
+    top: 65px;
     left: 0;
-    right: 0;
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
-    z-index: 998;
-    padding: 10px;
-}
-
-@media screen and (min-width: 769px) {
-    .quick-access {
-        top: auto;
-        bottom: 2rem;
-        right: 2rem;
-        left: auto;
-        flex-direction: column;
-        width: auto;
-    }
-}
-
-.quick-access a {
-    width: 85px;
-    height: 85px;
-    background: rgba(30, 41, 59, 0.8);
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 15px 0;
+    background: rgba(15, 23, 42, 0.7);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    transition: var(--transition);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    position: relative;
-    text-decoration: none; /* Remove underlines from links */
-    padding: 5px;
+    z-index: 997;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
 }
 
-.quick-access a:hover {
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    padding: 0 20px;
+}
+
+.quick-button {
+    width: 110px;
+    height: 110px;
+    background: rgba(21, 27, 40, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(59, 130, 246, 0.5);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.quick-button:hover {
     background: rgba(30, 58, 138, 0.8);
     transform: translateY(-5px);
-    box-shadow: var(--glow);
-    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+    border-color: rgba(59, 130, 246, 0.7);
 }
 
-.quick-access img {
-    width: 36px;
-    height: 36px;
+/* Icon container to maintain icon proportions */
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 12px;
+}
+
+.quick-button img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    filter: brightness(0) invert(1);
     object-fit: contain;
-    transition: var(--transition);
-    filter: brightness(0) invert(1); /* Make all icons white */
-    margin-bottom: 8px;
 }
 
-.quick-access a:hover img {
-    transform: scale(1.1);
+/* Set the door icon back to its original size */
+.quick-button.door-button .icon-container {
+    width: 40px;
+    height: 40px;
 }
 
-/* Standardized icon sizes for consistency */
-.quick-access .waze-link img,
-.quick-access .door-link img,
-.quick-access .phone-link img,
-.quick-access .gpt-link img,
-.quick-access .map-link img,
-.quick-access .home-link img {
-    width: 36px;
-    height: 36px;
+.quick-button.door-button img {
+    max-width: 100%;
+    max-height: 100%;
+    transform: scale(0.8); /* Reduce to original size */
 }
 
-/* Tooltip for quick access buttons */
-.tooltip {
-    position: absolute;
-    width: 100%;
-    bottom: 12px;
-    background: transparent;
-    color: var(--text-light);
-    font-size: 0.8rem;
+.quick-button span {
     text-align: center;
-    white-space: nowrap;
-    text-decoration: none; /* Ensure no underline */
-    line-height: 1.2;
-}
-
-.tooltip::after {
-    display: none;
-}
-
-.quick-access a:hover img {
-    transform: scale(1.1);
-}
-
-.quick-access a:hover .tooltip {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    font-size: 14px;
+    width: 100%;
+    line-height: 1.3;
 }
 
 /* Modern hero content with animations */
@@ -442,100 +431,6 @@ header h1 {
     }
 }
 
-/* Mobile responsiveness improvements */
-@media screen and (max-width: 768px) {
-    header img {
-        height: 30px;
-    }
-
-    header h1 {
-        font-size: 1.2rem;
-    }
-
-    .menu-btn {
-        min-width: 44px;
-        min-height: 44px;
-        padding: 10px;
-        margin: -10px;
-    }
-
-    .home-nav a {
-        font-size: 1.5rem;
-        padding: 0.5rem 1rem;
-        width: 80%;
-    }
-
-    .hero-content h2 {
-        font-size: 2.2rem;
-        padding: 0 1rem;
-        white-space: normal;
-        line-height: 1.2;
-    }
-
-    .hero-content img {
-        height: 70px;
-    }
-
-    /* Mobile-specific quick-access positioning */
-    .quick-access {
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-
-    .quick-access a {
-        padding: 8px;
-        min-width: 70px;
-        max-width: calc(20% - 8px);
-    }
-
-    .quick-access img {
-        width: 30px;
-        height: 30px;
-        margin-bottom: 5px;
-    }
-
-    .tooltip {
-        font-size: 0.7rem;
-    }
-
-    /* Extra small screens */
-    @media screen and (max-width: 480px) {
-        .quick-access {
-            gap: 6px;
-        }
-
-        .quick-access a {
-            padding: 6px;
-            min-width: 60px;
-        }
-
-        .quick-access img {
-            width: 26px;
-            height: 26px;
-            margin-bottom: 4px;
-        }
-
-        .tooltip {
-            font-size: 0.65rem;
-        }
-    }
-}
-
-/* Add subtle hover effect */
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5);
-    }
-    70% {
-        box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
-    }
-}
-
-/* Removed pulse animation from phone button */
-
 /* Add more futuristic elements */
 .home-nav::after {
     content: '';
@@ -546,12 +441,6 @@ header h1 {
     height: 100%;
     background: radial-gradient(circle at center, rgba(59, 130, 246, 0.05), transparent 70%);
     pointer-events: none;
-}
-
-/* Home link specific styles */
-.quick-access .home-link img {
-    width: 28px;
-    height: 28px;
 }
 
 /* Nav grid layout for school pages */
@@ -567,7 +456,7 @@ header h1 {
 
 .nav-card {
     background: rgba(30, 41, 59, 0.7);
-    border-radius: 10px;
+    border-radius: 0;
     padding: 1.5rem;
     display: flex;
     align-items: center;
@@ -592,7 +481,7 @@ header h1 {
     width: 50px;
     height: 50px;
     background: rgba(59, 130, 246, 0.2);
-    border-radius: 10px;
+    border-radius: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -687,7 +576,71 @@ header h1 {
     opacity: 0.8;
 }
 
+/* Mobile responsiveness improvements */
 @media screen and (max-width: 768px) {
+    header img {
+        height: 30px;
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    .menu-btn {
+        min-width: 44px;
+        min-height: 44px;
+        padding: 10px;
+        margin: -10px;
+    }
+
+    .home-nav a {
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+        width: 80%;
+    }
+
+    .hero-content h2 {
+        font-size: 2.2rem;
+        padding: 0 1rem;
+        white-space: normal;
+        line-height: 1.2;
+    }
+
+    .hero-content img {
+        height: 70px;
+    }
+
+    .nav-circle {
+        top: 60px;
+        padding: 10px 0;
+    }
+
+    .nav-buttons {
+        gap: 10px;
+    }
+
+    .quick-button {
+        width: 95px;
+        height: 95px;
+        padding: 8px;
+    }
+
+    .icon-container {
+        width: 42px;
+        height: 42px;
+        margin-bottom: 7px;
+    }
+
+    /* Maintain original door icon size on mobile */
+    .quick-button.door-button .icon-container {
+        width: 34px;
+        height: 34px;
+    }
+
+    .quick-button span {
+        font-size: 12px;
+    }
+
     .nav-grid {
         grid-template-columns: 1fr;
         margin-top: 6rem;
@@ -709,4 +662,57 @@ header h1 {
     .hero-icon {
         font-size: 2.5rem;
     }
+}
+
+@media screen and (max-width: 480px) {
+    .nav-buttons {
+        gap: 7px;
+    }
+
+    .quick-button {
+        width: 80px;
+        height: 80px;
+        padding: 6px;
+    }
+
+    .icon-container {
+        width: 35px;
+        height: 35px;
+        margin-bottom: 5px;
+    }
+
+    /* Maintain original door icon size on small mobile */
+    .quick-button.door-button .icon-container {
+        width: 28px;
+        height: 28px;
+    }
+
+    .quick-button span {
+        font-size: 10px;
+    }
+}
+
+/* Specific adjustments for icons that may need special handling */
+.quick-button.map-button .icon-container img,
+.quick-button.gpt-button .icon-container img,
+.quick-button.phone-button .icon-container img,
+.quick-button.waze-button .icon-container img {
+    /* Make all other icons larger to match the door icon */
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Individual specific adjustments if needed */
+.quick-button.map-button .icon-container img {
+    width: auto;
+    height: auto;
+    transform: scale(1.25); /* Scale up by 25% */
+}
+
+.quick-button.phone-button .icon-container img {
+    width: auto;
+    height: auto;
+    transform: scale(1.25); /* Scale up by 25% */
 }

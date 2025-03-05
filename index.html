@@ -3,8 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>בא״פ לכיש</title>
+    <title>בא״פ לכיש | Lachish Base</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Add this to your styles.css file or keep inline */
+        .nav-circle {
+            position: fixed;
+            top: 65px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 997;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+
+        .quick-button {
+            width: 90px;
+            height: 90px;
+            background: rgba(30, 41, 59, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .quick-button:hover {
+            background: rgba(30, 58, 138, 0.8);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        .quick-button img {
+            width: 36px;
+            height: 36px;
+            margin-bottom: 8px;
+            filter: brightness(0) invert(1);
+        }
+
+        .quick-button span {
+            text-align: center;
+            font-size: 12px;
+            width: 100%;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 768px) {
+            .nav-circle {
+                top: 60px;
+                padding: 10px 0;
+            }
+
+            .nav-buttons {
+                gap: 10px;
+            }
+
+            .quick-button {
+                width: 75px;
+                height: 75px;
+                padding: 8px;
+            }
+
+            .quick-button img {
+                width: 30px;
+                height: 30px;
+                margin-bottom: 5px;
+            }
+
+            .quick-button span {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-buttons {
+                gap: 5px;
+            }
+
+            .quick-button {
+                width: 65px;
+                height: 65px;
+                padding: 5px;
+            }
+
+            .quick-button img {
+                width: 26px;
+                height: 26px;
+                margin-bottom: 3px;
+            }
+
+            .quick-button span {
+                font-size: 9px;
+            }
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -21,14 +135,53 @@
     </div>
 </header>
 
+<div class="nav-circle">
+    <div class="nav-buttons">
+        <a href="https://www.google.com/maps/d/u/0/edit?mid=1aVmx7q5HlFris3QWdCKbGnyzMCVHVRQ" target="_blank" class="quick-button">
+            <img src="images/map.png" alt="Map">
+            <span>מפת שטחי אש</span>
+        </a>
+        <a href="https://chatgpt.com/g/g-6773e0da1ff08191b3fc1dd6d9f2c380-mtvvkhym-bp-lkysh" target="_blank" class="quick-button">
+            <img src="images/gpt.png" alt="GPT">
+            <span>בוט מטווחים</span>
+        </a>
+        <a href="tel:+97286853205" class="quick-button">
+            <img src="images/phone.png" alt="Phone">
+            <span>התקשר לחמ״ל</span>
+        </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbVpCwctd-ZZQymeun5TodDlGjEqnFYck7snwh_dzsWDRKhA/viewform" target="_blank" class="quick-button">
+            <img src="images/door.png" alt="Door">
+            <span>דלת פתוחה מפקד</span>
+        </a>
+        <a href="https://waze.com/ul/hsv8gdq04d" target="_blank" class="quick-button">
+            <img src="images/waze.png" alt="Waze">
+            <span>ניווט</span>
+        </a>
+    </div>
+</div>
+
 <nav class="home-nav">
-    <a href="lehima.html">ביה״ס ללחימה</a>
-    <a href="hagnash.html">ביה״ס להגנ״ש</a>
-    <a href="nehiga.html">ביה״ס לנהיגה</a>
-    <a href="gashashim.html">ביה״ס לגששים</a>
-    <a href="https://safetyprod.azurewebsites.net">בטיחות</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSczMrVOz_pTev4FcaAcLqKwGiQUHYSj-b916dhsPt8fOx9gyw/viewform">תיאום אימון עצמאי</a>
-    <a href="media/had.pdf">הדרכה</a>
+    <a href="lehima.html">
+        <i class="fas fa-shield-alt"></i> ביה״ס ללחימה
+    </a>
+    <a href="hagnash.html">
+        <i class="fas fa-hard-hat"></i> ביה״ס להגנ״ש
+    </a>
+    <a href="nehiga.html">
+        <i class="fas fa-car"></i> ביה״ס לנהיגה
+    </a>
+    <a href="gashashim.html">
+        <i class="fas fa-search"></i> ביה״ס לגששים
+    </a>
+    <a href="https://safetyprod.azurewebsites.net">
+        <i class="fas fa-exclamation-triangle"></i> בטיחות
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSczMrVOz_pTev4FcaAcLqKwGiQUHYSj-b916dhsPt8fOx9gyw/viewform">
+        <i class="fas fa-tasks"></i> תיאום אימון עצמאי
+    </a>
+    <a href="media/had.pdf">
+        <i class="fas fa-book"></i> הדרכה
+    </a>
 </nav>
 
 <section class="hero">
@@ -49,27 +202,9 @@
     </div>
 </section>
 
-<div class="quick-access">
-    <a href="https://waze.com/ul/hsv8gdq04d" target="_blank" class="waze-link">
-        <img src="images/waze.png" alt="Waze">
-    </a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbVpCwctd-ZZQymeun5TodDlGjEqnFYck7snwh_dzsWDRKhA/viewform" target="_blank" class="door-link">
-        <img src="images/door.png" alt="Door">
-    </a>
-    <a href="tel:+97286853205" class="phone-link">
-        <img src="images/phone.png" alt="Phone">
-    </a>
-    <a href="https://chatgpt.com/g/g-6773e0da1ff08191b3fc1dd6d9f2c380-mtvvkhym-bp-lkysh" target="_blank" class="gpt-link">
-        <img src="images/gpt.png" alt="ChatGPT">
-    </a>
-    <a href="https://www.google.com/maps/d/u/0/edit?mid=1aVmx7q5HlFris3QWdCKbGnyzMCVHVRQ" target="_blank" class="map-link">
-        <img src="images/map.png" alt="Map">
-    </a>
-</div>
-
 <script>
     const menuBtn = document.querySelector('.menu-btn');
-    const navMenu = document.querySelector('.home-nav');  // Changed to home-nav
+    const navMenu = document.querySelector('.home-nav');
 
     menuBtn.addEventListener('click', () => {
         menuBtn.classList.toggle('active');
@@ -86,7 +221,29 @@
         setTimeout(showSlides, 5000);
     }
 
-    showSlides();
+    // Add the active class initially to the first slide
+    slides[0].style.opacity = '1';
+
+    // Start slideshow after a brief delay
+    setTimeout(showSlides, 5000);
+
+    // Add hover effect to nav items
+    const navLinks = document.querySelectorAll('.home-nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            navLinks.forEach(otherLink => {
+                if (otherLink !== link) {
+                    otherLink.style.opacity = '0.5';
+                }
+            });
+        });
+
+        link.addEventListener('mouseleave', () => {
+            navLinks.forEach(otherLink => {
+                otherLink.style.opacity = '1';
+            });
+        });
+    });
 </script>
 </body>
 </html>

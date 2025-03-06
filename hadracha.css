@@ -472,3 +472,88 @@ body.gashashim-page {
         transform: translateY(-5px);
     }
 }
+
+/* Add these rules to the end of your hadracha.css file */
+
+/* Basic dropdown styles */
+.office-dropdown {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.office-dropdown-content {
+    display: none;
+    position: absolute;
+    background: rgb(21, 27, 40); /* Solid background */
+    border: 1px solid rgba(59, 130, 246, 0.6);
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    border-radius: 5px;
+    top: 100%;
+    right: 0;
+    left: 0;
+    margin-top: 5px;
+}
+
+/* Show dropdown on hover for desktop only */
+@media (hover: hover) {
+    .office-dropdown:hover .office-dropdown-content {
+        display: block;
+    }
+}
+
+/* Toggle behavior for mobile - similar to menu button */
+.office-dropdown-content.active {
+    display: block !important;
+}
+
+.office-dropdown-item {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.office-dropdown-item:hover {
+    background: rgba(30, 58, 138, 0.6);
+}
+
+.office-dropdown-item i {
+    margin-left: 8px;
+    font-size: 1.2rem;
+}
+
+/* Ensure the training card has the correct position for the dropdown */
+.training-card.has-dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Add visual indicator for dropdown on mobile */
+@media (max-width: 768px) {
+    .training-card.has-dropdown::after {
+        content: '\f107'; /* FontAwesome down arrow */
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        color: rgba(59, 130, 246, 0.8);
+        font-size: 14px;
+    }
+
+    /* Make sure dropdown items are large enough to tap */
+    .office-dropdown-item {
+        padding: 16px;
+        min-height: 44px; /* Apple's recommended size */
+    }
+
+    /* Visual feedback when item is tapped */
+    .office-dropdown-item:active {
+        background: rgba(30, 58, 138, 0.8);
+    }
+}

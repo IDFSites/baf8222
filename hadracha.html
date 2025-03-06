@@ -63,7 +63,7 @@
       <p class="card-description">קורסים מקוונים בנושאי הדרכה</p>
     </a>
 
-    <!-- Modified Office courses section with dropdown - now touch-friendly -->
+    <!-- Modified Office courses section with dropdown - using simple toggle approach -->
     <div class="training-card has-dropdown" id="officeDropdownCard">
       <div class="office-dropdown">
         <div>
@@ -128,78 +128,13 @@
       navMenu.classList.toggle('active');
     });
 
-    // Detect if the device is mobile/touch
+    // Fix nav links hover effect on mobile
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
-    const supportsHover = window.matchMedia('(hover: hover)').matches;
 
-    // Get dropdown elements
-    const officeDropdownCard = document.getElementById('officeDropdownCard');
-    const officeDropdownContent = document.getElementById('officeDropdownContent');
+    // Only apply hover effects on desktop, not on mobile
+    if (!isMobile) {
+      const navLinks = document.querySelectorAll('.home-nav a');
 
-    // Fix navigation hover effects
-    const navLinks = document.querySelectorAll('.home-nav a');
-
-    if (isMobile || isTouchDevice) {
-      // For mobile/touch devices
-
-      // Remove any existing hover effects on mobile
-      navLinks.forEach(link => {
-        link.style.opacity = '1';
-
-        // Remove events by cloning and replacing
-        const newLink = link.cloneNode(true);
-        link.parentNode.replaceChild(newLink, link);
-      });
-
-      if (officeDropdownCard && officeDropdownContent) {
-        // For mobile dropdown interaction
-        let isDropdownOpen = false;
-
-        // Clear any existing hover-based display
-        officeDropdownContent.style.display = 'none';
-
-        // Handle touch events on the dropdown card
-        officeDropdownCard.addEventListener('click', function(e) {
-          // Only handle if not clicking on a dropdown item link
-          if (!e.target.closest('.office-dropdown-item')) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            // Toggle dropdown visibility
-            if (isDropdownOpen) {
-              officeDropdownContent.style.display = 'none';
-              officeDropdownContent.classList.remove('show');
-              isDropdownOpen = false;
-            } else {
-              officeDropdownContent.style.display = 'block';
-              officeDropdownContent.classList.add('show');
-              isDropdownOpen = true;
-            }
-          }
-        });
-
-        // Close dropdown when touching outside
-        document.addEventListener('click', function(e) {
-          if (isDropdownOpen && !e.target.closest('#officeDropdownCard')) {
-            officeDropdownContent.style.display = 'none';
-            officeDropdownContent.classList.remove('show');
-            isDropdownOpen = false;
-          }
-        });
-      }
-
-      // iOS-specific fixes
-      if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        // Prevent sticky hover state on iOS
-        document.addEventListener('touchend', function() {
-          // This helps clear stuck hover states
-        }, false);
-      }
-    } else {
-      // For desktop devices (hover-capable)
-
-      // Keep normal hover behaviors for desktop
       navLinks.forEach(link => {
         link.addEventListener('mouseenter', () => {
           navLinks.forEach(otherLink => {
@@ -215,31 +150,29 @@
           });
         });
       });
+    }
 
-      // For desktop, make sure the dropdown doesn't disappear too quickly
-      if (officeDropdownCard && officeDropdownContent) {
-        // Add a small delay to dropdown disappearance for better UX
-        let dropdownTimeout;
+    // Simple dropdown toggle - just like the menu button
+    const officeDropdownCard = document.getElementById('officeDropdownCard');
+    const officeDropdownContent = document.getElementById('officeDropdownContent');
 
-        officeDropdownCard.addEventListener('mouseenter', function() {
-          clearTimeout(dropdownTimeout);
-          officeDropdownContent.style.display = 'block';
+    if (officeDropdownCard && officeDropdownContent) {
+      // Disable hover-based dropdown on mobile
+      if (isMobile) {
+        // Add click toggle behavior
+        officeDropdownCard.addEventListener('click', function(e) {
+          // Only toggle if not clicking a dropdown item
+          if (!e.target.closest('.office-dropdown-item')) {
+            e.preventDefault();
+            officeDropdownContent.classList.toggle('active');
+          }
         });
 
-        officeDropdownCard.addEventListener('mouseleave', function() {
-          dropdownTimeout = setTimeout(function() {
-            officeDropdownContent.style.display = 'none';
-          }, 300); // Small delay to prevent accidental closing
-        });
-
-        officeDropdownContent.addEventListener('mouseenter', function() {
-          clearTimeout(dropdownTimeout);
-        });
-
-        officeDropdownContent.addEventListener('mouseleave', function() {
-          dropdownTimeout = setTimeout(function() {
-            officeDropdownContent.style.display = 'none';
-          }, 300);
+        // Close dropdown when clicking anywhere else
+        document.addEventListener('click', function(e) {
+          if (!e.target.closest('#officeDropdownCard') && officeDropdownContent.classList.contains('active')) {
+            officeDropdownContent.classList.remove('active');
+          }
         });
       }
     }

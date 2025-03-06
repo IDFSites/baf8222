@@ -1,21 +1,11 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl" class="no-scroll">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>בא״פ לכיש | Lachish Base</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Inline styles to ensure no scrolling */
-        html, body.index-page {
-            overflow: hidden !important;
-            height: 100% !important;
-            position: fixed !important;
-            width: 100% !important;
-            touch-action: none !important;
-        }
-    </style>
 </head>
 <body class="index-page">
 <header>
@@ -153,19 +143,6 @@
                 otherLink.style.opacity = '1';
             });
         });
-    });
-
-    // Force no scrolling for index page
-    document.documentElement.classList.add('no-scroll');
-    document.body.classList.add('index-page');
-
-    // Prevent scrolling events
-    document.body.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-    }, { passive: false });
-
-    window.addEventListener('scroll', function() {
-        window.scrollTo(0, 0);
     });
 </script>
 

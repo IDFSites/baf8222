@@ -3,24 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ביה״ס לנהיגה</title>
+    <title>ביה״ס לנהיגה | בא״פ לכיש</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="hadracha.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body class="nehiga-page">
 <header>
     <div class="container">
         <div class="header-content">
             <img src="images/image.png" alt="Logo">
-            <h1>ביה״ס לנהיגה</h1>
-
+            <h1>בא״פ לכיש</h1>
+            <button class="menu-btn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </div>
 </header>
+
+<nav class="home-nav">
+    <a href="lehima.html">
+        <i class="fas fa-shield-alt"></i> ביה״ס ללחימה
+    </a>
+    <a href="hagnash.html">
+        <i class="fas fa-hard-hat"></i> ביה״ס להגנ״ש
+    </a>
+    <a href="nehiga.html" class="active">
+        <i class="fas fa-car"></i> ביה״ס לנהיגה
+    </a>
+    <a href="gashashim.html">
+        <i class="fas fa-search"></i> ביה״ס לגששים
+    </a>
+    <a href="https://safetyprod.azurewebsites.net">
+        <i class="fas fa-exclamation-triangle"></i> בטיחות
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSczMrVOz_pTev4FcaAcLqKwGiQUHYSj-b916dhsPt8fOx9gyw/viewform">
+        <i class="fas fa-tasks"></i> תיאום אימון עצמאי
+    </a>
+    <a href="hadracha.html">
+        <i class="fas fa-book"></i> הדרכה
+    </a>
+</nav>
+
+<div class="page-container">
+    <div class="page-header">
+        <h2>ביה״ס לנהיגה</h2>
+    </div>
+
+    <div class="empty-state">
+        <i class="fas fa-car-side empty-state-icon"></i>
+        <p class="empty-state-text">תוכן עבור בית הספר לנהיגה יעלה בקרוב</p>
+        <p>ניתן ליצור קשר עם המדריכים לקבלת מידע נוסף</p>
+    </div>
+</div>
 
 <a href="index.html" class="home-button">
     <img src="images/home.png" alt="Home">
     <span>דף הבית</span>
 </a>
 
+<div class="footer-container">
+    <div class="footer-content">
+        <div class="footer-text">© 2024 בא״פ לכיש - כל הזכויות שמורות</div>
+    </div>
+</div>
+
+<script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const navMenu = document.querySelector('.home-nav');
+
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Add hover effect to nav items
+    const navLinks = document.querySelectorAll('.home-nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            navLinks.forEach(otherLink => {
+                if (otherLink !== link) {
+                    otherLink.style.opacity = '0.7';
+                }
+            });
+        });
+
+        link.addEventListener('mouseleave', () => {
+            navLinks.forEach(otherLink => {
+                otherLink.style.opacity = '1';
+            });
+        });
+    });
+</script>
 </body>
 </html>

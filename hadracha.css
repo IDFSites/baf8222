@@ -1,0 +1,293 @@
+/* Common styles for hadracha page and all sub-pages */
+.training-container,
+.page-container {
+    padding-top: 80px;
+    padding-bottom: 120px; /* Space for footer and home button */
+    min-height: calc(100vh - 180px);
+    background-color: rgba(18, 22, 33, 0.95);
+}
+
+.training-header,
+.page-header {
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.6);
+}
+
+.training-header h1,
+.page-header h2 {
+    font-size: 2.2rem;
+    color: #a0c4ff;
+    margin: 0;
+}
+
+/* Grid layouts - consistent 3 columns for all pages */
+.training-grid,
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Card and button styles */
+.training-card,
+.link-button {
+    background: rgba(21, 27, 40, 0.95);
+    border: 1px solid rgba(59, 130, 246, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.training-card {
+    padding: 12px 8px;
+    min-height: 130px;
+    max-width: 100%; /* Ensure it doesn't overflow */
+}
+
+.link-button {
+    padding: 15px;
+    min-height: 80px;
+}
+
+.training-card:hover,
+.link-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+    border-color: rgba(59, 130, 246, 0.8);
+    background: rgba(30, 58, 138, 0.6);
+}
+
+/* Icon styles */
+.card-icon-fa,
+.button-icon {
+    color: #ffffff;
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+}
+
+.card-icon-fa {
+    font-size: 2rem;
+}
+
+.button-icon {
+    font-size: 1.5rem;
+}
+
+.training-card:hover .card-icon-fa,
+.link-button:hover .button-icon {
+    transform: scale(1.1);
+    text-shadow: 0 0 8px rgba(160, 196, 255, 0.8);
+}
+
+/* Text styles */
+.card-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.card-description {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* Hide descriptions as requested */
+.description {
+    display: none;
+}
+
+/* Empty state message */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.empty-state-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: rgba(160, 196, 255, 0.5);
+}
+
+.empty-state-text {
+    font-size: 1.2rem;
+}
+
+/* Footer style */
+.footer-container {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(18, 22, 33, 0.9);
+    border-top: 1px solid rgba(59, 130, 246, 0.6);
+    padding: 15px 0;
+    z-index: 900;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 40px;
+}
+
+.footer-text {
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Home button positioning */
+.home-button {
+    position: fixed;
+    bottom: 85px;
+    right: 20px;
+    z-index: 990;
+    width: 70px;
+    height: 70px;
+}
+
+/* Active nav items */
+.home-nav a.active {
+    background: rgba(30, 58, 138, 0.6);
+    border-color: rgba(59, 130, 246, 0.8);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+/* ENABLE SCROLLING */
+html, body {
+    height: 100%;
+    overflow: auto; /* Enable scrolling */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .training-grid,
+    .link-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 0 15px;
+    }
+
+    .training-card,
+    .link-button {
+        min-height: 110px;
+        padding: 8px 4px;
+    }
+
+    .card-icon-fa,
+    .button-icon {
+        font-size: 1.7rem;
+        margin-bottom: 5px;
+    }
+
+    .card-title {
+        font-size: 0.9rem;
+        margin-bottom: 2px;
+    }
+
+    .card-description {
+        font-size: 0.7rem;
+    }
+
+    .training-header h1,
+    .page-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .home-button {
+        bottom: 75px;
+        right: 15px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .footer-content {
+        height: 35px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .training-grid,
+    .link-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on very small screens */
+        gap: 8px;
+        padding: 0 10px;
+    }
+
+    .training-card,
+    .link-button {
+        min-height: 100px;
+        padding: 6px 3px;
+    }
+
+    .card-icon-fa,
+    .button-icon {
+        font-size: 1.5rem;
+        margin-bottom: 4px;
+    }
+
+    .card-title {
+        font-size: 0.8rem;
+        margin-bottom: 1px;
+    }
+
+    .card-description {
+        font-size: 0.65rem;
+        line-height: 1.2;
+    }
+
+    .training-header h1,
+    .page-header h2 {
+        font-size: 1.6rem;
+    }
+
+    .home-button {
+        bottom: 65px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .home-button img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .home-button span {
+        font-size: 10px;
+    }
+
+    .footer-content {
+        height: 30px;
+    }
+
+    .footer-text {
+        font-size: 0.8rem;
+    }
+
+    .empty-state-icon {
+        font-size: 2.5rem;
+    }
+
+    .empty-state-text {
+        font-size: 1rem;
+    }
+}

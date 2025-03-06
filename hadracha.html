@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>הדרכה | בא״פ לכיש</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="hadracha.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="header-content">
+      <img src="images/image.png" alt="Logo">
+      <h1>בא״פ לכיש</h1>
+      <button class="menu-btn" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="home-nav">
+  <a href="lehima.html">
+    <i class="fas fa-shield-alt"></i> ביה״ס ללחימה
+  </a>
+  <a href="hagnash.html">
+    <i class="fas fa-hard-hat"></i> ביה״ס להגנ״ש
+  </a>
+  <a href="nehiga.html">
+    <i class="fas fa-car"></i> ביה״ס לנהיגה
+  </a>
+  <a href="gashashim.html">
+    <i class="fas fa-search"></i> ביה״ס לגששים
+  </a>
+  <a href="https://safetyprod.azurewebsites.net">
+    <i class="fas fa-exclamation-triangle"></i> בטיחות
+  </a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSczMrVOz_pTev4FcaAcLqKwGiQUHYSj-b916dhsPt8fOx9gyw/viewform">
+    <i class="fas fa-tasks"></i> תיאום אימון עצמאי
+  </a>
+  <a href="hadracha.html" class="active">
+    <i class="fas fa-book"></i> הדרכה
+  </a>
+</nav>
+
+<div class="training-container">
+  <div class="training-header">
+    <h1>הדרכה בטאצ׳</h1>
+  </div>
+
+  <div class="training-grid">
+    <!-- Links from the PDF document -->
+    <a href="https://campus.digital.idf.il/enrol/index.php?id=428" class="training-card" target="_blank">
+      <i class="fas fa-laptop-code card-icon-fa"></i>
+      <h2 class="card-title">MOOC מב״ב</h2>
+      <p class="card-description">קורסים מקוונים בנושאי הדרכה</p>
+    </a>
+
+    <a href="https://campus.gov.il/course/?filter=4" class="training-card" target="_blank">
+      <i class="fas fa-file-alt card-icon-fa"></i>
+      <h2 class="card-title">קורסי Office</h2>
+      <p class="card-description">קמפוס IL</p>
+    </a>
+
+    <a href="https://campus.digital.idf.il/course/view.php?id=9950" class="training-card" target="_blank">
+      <i class="fas fa-briefcase card-icon-fa"></i>
+      <h2 class="card-title">מארז הדרכה</h2>
+      <p class="card-description">כלים לתכנון וביצוע הדרכה</p>
+    </a>
+
+    <a href="https://campus.digital.idf.il/course/view.php?id=11134" class="training-card" target="_blank">
+      <i class="fas fa-book-open card-icon-fa"></i>
+      <h2 class="card-title">קמפוס בקליק</h2>
+      <p class="card-description">פלטפורמת למידה דיגיטלית</p>
+    </a>
+
+    <a href="https://www.instagram.com/hadracha_school/?igsh=MWtybHRwcGo1dHNxdA%3D%3D&utm_source=qr" class="training-card" target="_blank">
+      <i class="fab fa-instagram card-icon-fa"></i>
+      <h2 class="card-title">חשבון אינסטגרם</h2>
+      <p class="card-description">עקבו אחרינו ברשתות החברתיות</p>
+    </a>
+
+    <a href="https://campus.digital.idf.il/course/view.php?id=11132#section-5" class="training-card" target="_blank">
+      <i class="fas fa-lightbulb card-icon-fa"></i>
+      <h2 class="card-title">מארז כלים</h2>
+      <p class="card-description">לפיתוח למידה איכותית</p>
+    </a>
+  </div>
+</div>
+
+<a href="index.html" class="home-button">
+  <img src="images/home.png" alt="Home">
+  <span>דף הבית</span>
+</a>
+
+<div class="footer-container">
+  <div class="footer-content">
+    <div class="footer-text">© 2024 בא״פ לכיש - כל הזכויות שמורות</div>
+  </div>
+</div>
+
+<script>
+  const menuBtn = document.querySelector('.menu-btn');
+  const navMenu = document.querySelector('.home-nav');
+
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+
+  // Add hover effect to nav items
+  const navLinks = document.querySelectorAll('.home-nav a');
+  navLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      navLinks.forEach(otherLink => {
+        if (otherLink !== link) {
+          otherLink.style.opacity = '0.7';
+        }
+      });
+    });
+
+    link.addEventListener('mouseleave', () => {
+      navLinks.forEach(otherLink => {
+        otherLink.style.opacity = '1';
+      });
+    });
+  });
+</script>
+</body>
+</html>

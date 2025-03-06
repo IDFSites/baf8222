@@ -3,41 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ביה״ס ללחימה</title>
+    <title>ביה״ס ללחימה | בא״פ לכיש</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="hadracha.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body class="lehima-page">
 <header>
     <div class="container">
         <div class="header-content">
             <img src="images/image.png" alt="Logo">
-            <h1>ביה״ס ללחימה</h1>
+            <h1>בא״פ לכיש</h1>
+            <button class="menu-btn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </div>
 </header>
 
-<nav class="nav-menu">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfb8QtC1TKwJhrAwaUPBmWjZ5HZMVpUFdFPJBBRmkzKBfi2YQ/viewform">בוחן דו״צ וח״ק</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSepLcFuQaWhEcnIBhBsRRjVqdQu9WR-EP5OgKlqCVMLUCGtLA/viewform">בוחן בטיחות לשטח פתוח</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf6iL86c_ho0xQsqCsIO5kNySEr4ZlqA6CqDR93tXPdHiSyzg/viewform">בוחן בטיחות למטווח</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScLoSC5Fvlr-dsUuj__gpkJOccBLxb1pQ-JAbGxpUI9FDLMGA/viewform">בוחן הופ״א עומק</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSesTYgLZYGG_jRA8rUCG6xa3g1wydk65gwYPW-pLAhTo5qrDA/viewform">בוחן הופ״א תפר</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSemLqUaC3uhj3y9KGcZmq9AJqXhH9hUAZEWKmSe8lO1FZsW6w/viewform">בוחן הופ״א 417</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbFd9EzXQoZaQHWCQ3PdzY6xxrvhAOXjZzUiIEOqqv-sPTNg/viewform">הסמכת מנהלי תרגיל</a>
-    <a href="https://mynet.digital.idf.il/">תו״ל בנייד</a>
-    <a href="media/mvzak.pdf">מבזקון מבצעי</a>
+<nav class="home-nav">
+    <a href="lehima.html" class="active">
+        <i class="fas fa-shield-alt"></i> ביה״ס ללחימה
+    </a>
+    <a href="hagnash.html">
+        <i class="fas fa-hard-hat"></i> ביה״ס להגנ״ש
+    </a>
+    <a href="nehiga.html">
+        <i class="fas fa-car"></i> ביה״ס לנהיגה
+    </a>
+    <a href="gashashim.html">
+        <i class="fas fa-search"></i> ביה״ס לגששים
+    </a>
+    <a href="https://safetyprod.azurewebsites.net">
+        <i class="fas fa-exclamation-triangle"></i> בטיחות
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSczMrVOz_pTev4FcaAcLqKwGiQUHYSj-b916dhsPt8fOx9gyw/viewform">
+        <i class="fas fa-tasks"></i> תיאום אימון עצמאי
+    </a>
+    <a href="hadracha.html">
+        <i class="fas fa-book"></i> הדרכה
+    </a>
 </nav>
 
-<!-- Stand-alone home button that matches index page style -->
+<div class="page-container">
+    <div class="page-header">
+        <h2>ביה״ס ללחימה</h2>
+    </div>
+
+    <div class="link-grid">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfb8QtC1TKwJhrAwaUPBmWjZ5HZMVpUFdFPJBBRmkzKBfi2YQ/viewform" class="link-button" target="_blank">
+            <i class="fas fa-clipboard-check button-icon"></i>
+            בוחן דו״צ וח״ק
+        </a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSepLcFuQaWhEcnIBhBsRRjVqdQu9WR-EP5OgKlqCVMLUCGtLA/viewform" class="link-button" target="_blank">
+            <i class="fas fa-mountain button-icon"></i>
+            בוחן בטיחות לשטח פתוח
+        </a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf6iL86c_ho0xQsqCsIO5kNySEr4ZlqA6CqDR93tXPdHiSyzg/viewform" class="link-button" target="_blank">
+            <i class="fas fa-bullseye button-icon"></i>
+            בוחן בטיחות למטווח
+        </a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScLoSC5Fvlr-dsUuj__gpkJOccBLxb1pQ-JAbGxpUI9FDLMGA/viewform" class="link-button" target="_blank">
+            <i class="fas fa-map-marked-alt button-icon"></i>
+            בוחן הופ״א עומק
+        </a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSesTYgLZYGG_jRA8rUCG6xa3g1wydk65gwYPW-pLAhTo5qrDA/viewform" class="link-button" target="_blank">
+            <i class="fas fa-border-all button-icon"></i>
+            בוחן הופ״א תפר
+        </a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSemLqUaC3uhj3y9KGcZmq9AJqXhH9hUAZEWKmSe8lO1FZsW6w/viewform" class="link-button" target="_blank">
+            <i class="fas fa-crosshairs button-icon"></i>
+            בוחן הופ״א 417
+        </a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbFd9EzXQoZaQHWCQ3PdzY6xxrvhAOXjZzUiIEOqqv-sPTNg/viewform" class="link-button" target="_blank">
+            <i class="fas fa-user-shield button-icon"></i>
+            הסמכת מנהלי תרגיל
+        </a>
+
+        <a href="https://mynet.digital.idf.il/" class="link-button" target="_blank">
+            <i class="fas fa-mobile-alt button-icon"></i>
+            תו״ל בנייד
+        </a>
+
+        <a href="media/mvzak.pdf" class="link-button" target="_blank">
+            <i class="fas fa-file-pdf button-icon"></i>
+            מבזקון מבצעי
+        </a>
+    </div>
+</div>
+
 <a href="index.html" class="home-button">
     <img src="images/home.png" alt="Home">
     <span>דף הבית</span>
 </a>
 
+<div class="footer-container">
+    <div class="footer-content">
+        <div class="footer-text">© 2024 בא״פ לכיש - כל הזכויות שמורות</div>
+    </div>
+</div>
+
 <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const navMenu = document.querySelector('.home-nav');
+
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
     // Add hover effect to nav items
-    const navLinks = document.querySelectorAll('.nav-menu a');
+    const navLinks = document.querySelectorAll('.home-nav a');
     navLinks.forEach(link => {
         link.addEventListener('mouseenter', () => {
             navLinks.forEach(otherLink => {

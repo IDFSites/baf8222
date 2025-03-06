@@ -317,3 +317,158 @@ body.gashashim-page {
         margin-bottom: 60px;
     }
 }
+
+/* ======= MOBILE AND DESKTOP FIXES ======= */
+
+/* Dropdown styles with fixes for overlap and see-through */
+.office-dropdown {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+/* Fix dropdown positioning and styling */
+.office-dropdown-content {
+    display: none;
+    position: absolute;
+    background: rgb(21, 27, 40); /* Solid background instead of rgba */
+    border: 1px solid rgba(59, 130, 246, 0.6);
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    z-index: 1050; /* Higher z-index to prevent overlap issues */
+    border-radius: 5px;
+    top: 100%;
+    right: 0;
+    left: 0;
+    margin-top: 5px;
+}
+
+/* Ensure proper positioning for the dropdown */
+.training-grid {
+    position: relative; /* Make sure we have proper stacking context */
+}
+
+/* Fix hover interaction for desktop */
+@media (hover: hover) {
+    /* For desktop devices that support hover */
+    .office-dropdown:hover .office-dropdown-content {
+        display: block;
+    }
+
+    /* Restore hover event behavior for desktop navigation links */
+    .home-nav a:hover {
+        opacity: 1 !important;
+        background: rgba(30, 58, 138, 0.4);
+        border-color: rgba(59, 130, 246, 0.3);
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+    }
+
+    /* Fix for menu hover effect on desktop */
+    .home-nav a:hover ~ a {
+        opacity: 0.7;
+    }
+
+    /* Fix hover on dropdown items */
+    .office-dropdown-item:hover {
+        background: rgba(30, 58, 138, 0.8);
+    }
+
+    /* Prevent dropdown from instantly disappearing when moving cursor */
+    .office-dropdown-content {
+        padding-top: 5px; /* Add some padding to prevent gaps */
+    }
+}
+
+.office-dropdown-item {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    background: rgb(21, 27, 40); /* Solid background for items too */
+}
+
+.office-dropdown-item:hover,
+.office-dropdown-item:focus {
+    background: rgba(30, 58, 138, 0.8);
+}
+
+.office-dropdown-item i {
+    margin-left: 8px;
+    font-size: 1.2rem;
+}
+
+/* Ensure the training card has the correct position for the dropdown */
+.training-card.has-dropdown {
+    position: relative;
+    cursor: pointer;
+    z-index: 1040; /* Set proper z-index for stacking */
+}
+
+/* Disable opacity changes on touch devices */
+@media (hover: none) {
+    .home-nav a {
+        opacity: 1 !important;
+    }
+
+    /* Make active item stand out more on mobile */
+    .home-nav a.active {
+        background: rgba(30, 58, 138, 0.8);
+        border-color: rgba(59, 130, 246, 0.8);
+        box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+    }
+}
+
+/* Mobile-specific enhancements */
+@media (max-width: 768px) {
+    /* Increase touch target sizes on mobile */
+    .office-dropdown-item {
+        padding: 15px 16px;
+        min-height: 44px; /* Apple recommends minimum 44px touch targets */
+    }
+
+    /* Visual indicator for dropdown */
+    .training-card.has-dropdown::after {
+        content: '\f107'; /* Font Awesome down arrow */
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        color: rgba(59, 130, 246, 0.8);
+        font-size: 14px;
+    }
+
+    /* Make sure dropdown doesn't go off-screen */
+    .office-dropdown-content {
+        max-height: 200px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Add visible focus styles for accessibility */
+    .office-dropdown-item:focus {
+        outline: 2px solid rgba(59, 130, 246, 0.6);
+        background: rgba(30, 58, 138, 0.4);
+    }
+}
+
+/* Fix for any opacity or visibility issues with dropdown */
+.office-dropdown-content.show {
+    display: block !important;
+    background: rgb(21, 27, 40) !important;
+}
+
+/* Fix hover state on mobile for Office dropdown card */
+.training-card.has-dropdown:hover {
+    transform: none;
+}
+
+/* Only apply hover transform when the device supports hover */
+@media (hover: hover) {
+    .training-card.has-dropdown:hover {
+        transform: translateY(-5px);
+    }
+}

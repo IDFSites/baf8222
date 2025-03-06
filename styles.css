@@ -896,10 +896,16 @@ header h1 {
     text-align: center;
 }
 
-/* Adjust main content to make room for footer and prevent scrolling */
-html, body {
+/* Adjust main content to make room for footer and prevent scrolling - only on index page */
+html, body.index-page {
     height: 100%;
     overflow: hidden;
+}
+
+/* Enable scrolling for all other pages */
+html, body:not(.index-page) {
+    height: 100%;
+    overflow: auto !important;
 }
 
 .hero {
@@ -1011,8 +1017,40 @@ html, body {
     z-index: 990; /* Keep this higher than footer but not higher than nav */
 }
 
+/* Fix
+
+
 /* Fix for scroll issues - Override previous settings */
 html, body {
     height: 100%;
     overflow: auto !important; /* Force scrolling to be enabled */
+}
+
+/* Add these rules at the very end of your styles.css file */
+
+/* Force index page to not scroll with highest priority */
+html.no-scroll,
+body.index-page {
+    overflow: hidden !important;
+    height: 100% !important;
+    position: fixed !important;
+    width: 100% !important;
+    touch-action: none !important;
+}
+
+/* Additional fix for mobile browsers */
+@media screen and (max-width: 1024px) {
+    body.index-page {
+        position: fixed !important;
+        overflow: hidden !important;
+    }
+}
+
+/* Fix that overrides the scroll issue for non-index pages */
+html:not(.no-scroll),
+body:not(.index-page) {
+    overflow: auto !important;
+    height: auto !important;
+    position: static !important;
+    touch-action: auto !important;
 }

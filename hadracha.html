@@ -7,6 +7,57 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="hadracha.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Additional CSS for the dropdown */
+    .office-dropdown {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+
+    .office-dropdown-content {
+      display: none;
+      position: absolute;
+      background: rgba(21, 27, 40, 0.98);
+      border: 1px solid rgba(59, 130, 246, 0.6);
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+      border-radius: 5px;
+      top: 100%;
+      right: 0;
+      left: 0;
+      margin-top: 5px;
+    }
+
+    .office-dropdown:hover .office-dropdown-content {
+      display: block;
+    }
+
+    .office-dropdown-item {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .office-dropdown-item:hover {
+      background: rgba(30, 58, 138, 0.6);
+    }
+
+    .office-dropdown-item i {
+      margin-left: 8px;
+      font-size: 1.2rem;
+    }
+
+    /* Ensure the training card has the correct position for the dropdown */
+    .training-card.has-dropdown {
+      position: relative;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 <header>
@@ -60,11 +111,27 @@
       <p class="card-description">קורסים מקוונים בנושאי הדרכה</p>
     </a>
 
-    <a href="https://campus.gov.il/course/?filter=4" class="training-card" target="_blank">
-      <i class="fas fa-file-alt card-icon-fa"></i>
-      <h2 class="card-title">קורסי Office</h2>
-      <p class="card-description">קמפוס IL</p>
-    </a>
+    <!-- Modified Office courses section with dropdown -->
+    <div class="training-card has-dropdown">
+      <div class="office-dropdown">
+        <div>
+          <i class="fas fa-file-alt card-icon-fa"></i>
+          <h2 class="card-title">קורסי Office</h2>
+          <p class="card-description">בחר תוכנה</p>
+        </div>
+        <div class="office-dropdown-content">
+          <a href="https://campus.gov.il/course/digitalisrael-gov-oryanut-word101-he/" class="office-dropdown-item">
+            <i class="fas fa-file-word"></i> Word
+          </a>
+          <a href="https://campus.gov.il/course/digitalisrael-gov-oryanut-powerpoint101-he/" class="office-dropdown-item">
+            <i class="fas fa-file-powerpoint"></i> PowerPoint
+          </a>
+          <a href="https://campus.gov.il/course/digitalisrael-gov-oryanut-excelbasic101-he/" class="office-dropdown-item">
+            <i class="fas fa-file-excel"></i> Excel
+          </a>
+        </div>
+      </div>
+    </div>
 
     <a href="https://campus.digital.idf.il/course/view.php?id=9950" class="training-card" target="_blank">
       <i class="fas fa-briefcase card-icon-fa"></i>

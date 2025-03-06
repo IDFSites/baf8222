@@ -1026,3 +1026,47 @@ html, body {
     overflow: auto !important; /* Force scrolling to be enabled */
 }
 
+/* Force the index page to not scroll */
+html, body.index-page {
+    overflow: hidden !important;
+    height: 100% !important;
+    position: fixed !important;
+    width: 100% !important;
+}
+
+/* Text alignment fix for quick buttons */
+.quick-button span {
+    text-align: center;
+    width: 100%;
+    display: block;
+    line-height: 1.3;
+    white-space: normal; /* Allow text to wrap properly */
+}
+
+/* Specifically fix the door button text alignment */
+.quick-button.door-button span {
+    padding: 0 4px;
+}
+
+@media screen and (max-width: 480px) {
+    .quick-button span {
+        font-size: 12px;
+        white-space: normal;
+        padding: 0 2px;
+    }
+}
+
+/* Make sure this is the absolute last rule in your CSS file */
+html:not(.no-scroll),
+body:not(.index-page) {
+    overflow: auto !important;
+    height: auto !important;
+    position: static !important;
+}
+
+.quick-button.door-button span {
+    display: block;
+    padding-top: 5px; /* Adjust the value as needed */
+}
+
+

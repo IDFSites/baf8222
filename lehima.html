@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ביה״ס ללחימה</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 <header>
@@ -28,12 +29,30 @@
     <a href="media/mvzak.pdf">מבזקון מבצעי</a>
 </nav>
 
+<!-- Stand-alone home button that matches index page style -->
+<a href="index.html" class="home-button">
+    <img src="images/home.png" alt="Home">
+    <span>דף הבית</span>
+</a>
 
+<script>
+    // Add hover effect to nav items
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            navLinks.forEach(otherLink => {
+                if (otherLink !== link) {
+                    otherLink.style.opacity = '0.7';
+                }
+            });
+        });
 
-<div class="quick-access">
-    <a href="index.html" class="home-link">
-        <img src="images/home.png" alt="Home">
-    </a>
-</div>
+        link.addEventListener('mouseleave', () => {
+            navLinks.forEach(otherLink => {
+                otherLink.style.opacity = '1';
+            });
+        });
+    });
+</script>
 </body>
 </html>

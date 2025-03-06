@@ -716,3 +716,80 @@ header h1 {
     height: auto;
     transform: scale(1.25); /* Scale up by 25% */
 }
+
+/* Stand-alone home button styling that will work regardless of HTML structure */
+.home-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 110px;
+    height: 110px;
+    background: rgba(21, 27, 40, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(59, 130, 246, 0.5);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 990;
+}
+
+.home-button:hover {
+    background: rgba(30, 58, 138, 0.8);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+    border-color: rgba(59, 130, 246, 0.7);
+}
+
+.home-button img {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) invert(1);
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.home-button span {
+    font-size: 14px;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .home-button {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 95px;
+        height: 95px;
+    }
+
+    .home-button img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .home-button span {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .home-button {
+        bottom: 1rem;
+        right: 1rem;
+        width: 80px;
+        height: 80px;
+    }
+
+    .home-button img {
+        width: 28px;
+        height: 28px;
+        margin-bottom: 5px;
+    }
+
+    .home-button span {
+        font-size: 10px;
+    }
+}

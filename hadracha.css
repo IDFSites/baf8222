@@ -291,3 +291,29 @@ html, body {
         font-size: 1rem;
     }
 }
+
+/* Add these to the end of your existing hadracha.css file */
+
+/* 2. Fix for home button overlapping with content in pages */
+.page-container {
+    padding-bottom: 150px !important; /* Increased padding to prevent overlap with home button */
+}
+
+.link-grid {
+    margin-bottom: 50px; /* Add extra margin at the bottom */
+}
+
+body.lehima-page,
+body.hagnash-page,
+body.nehiga-page,
+body.gashashim-page {
+    padding-bottom: 120px; /* Extra padding for specific pages */
+}
+
+/* Override the overflow: hidden from styles.css */
+@media screen and (max-width: 768px) {
+    .training-grid,
+    .link-grid {
+        margin-bottom: 60px;
+    }
+}

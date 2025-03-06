@@ -964,3 +964,55 @@ html, body {
         bottom: 90px;
     }
 }
+
+/* Add these to the end of your existing styles.css file */
+
+/* 1. Fix for nav buttons to display in one row with larger text */
+@media screen and (max-width: 768px) {
+    .nav-buttons {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 10px 5px;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .nav-buttons::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for Chrome/Safari/Opera */
+    }
+
+    .quick-button {
+        min-width: 95px;
+        flex: 0 0 auto;
+        margin: 0 5px;
+    }
+
+    .quick-button span {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .quick-button span {
+        font-size: 12px;
+    }
+}
+
+/* Fix for footer potentially causing issues */
+.footer-container {
+    z-index: 980; /* Make sure it's below the home button z-index */
+}
+
+.home-button {
+    z-index: 990; /* Keep this higher than footer but not higher than nav */
+}
+
+/* Fix for scroll issues - Override previous settings */
+html, body {
+    height: 100%;
+    overflow: auto !important; /* Force scrolling to be enabled */
+}

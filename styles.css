@@ -793,3 +793,174 @@ header h1 {
         font-size: 10px;
     }
 }
+
+/* Footer that matches the navigation boxes */
+.footer-container {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(18, 22, 33, 0.9);
+    border-top: 1px solid rgba(59, 130, 246, 0.6);
+    padding: 10px 0;
+    z-index: 900;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 50px;
+}
+
+.footer-logo {
+    height: 35px;
+    margin-right: 15px;
+}
+
+.footer-text {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Adjust main content to make room for footer */
+.hero {
+    height: calc(100vh - 130px); /* 80px header + 50px footer */
+    margin-bottom: 50px; /* Match footer height */
+}
+
+.slideshow-container {
+    border-bottom: 1px solid rgba(59, 130, 246, 0.6);
+}
+
+/* Make sure home button stays above footer */
+.home-button {
+    bottom: 60px;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-content {
+        height: 40px;
+    }
+
+    .footer-logo {
+        height: 25px;
+    }
+
+    .footer-text {
+        font-size: 12px;
+    }
+
+    .hero {
+        height: calc(100vh - 120px); /* 80px header + 40px footer */
+        margin-bottom: 40px;
+    }
+
+    .home-button {
+        bottom: 50px;
+    }
+}
+
+/* Footer that matches the navigation boxes - taller version */
+.footer-container {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(18, 22, 33, 0.9);
+    border-top: 1px solid rgba(59, 130, 246, 0.6);
+    padding: 15px 0;
+    z-index: 900;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 70px; /* Increased height */
+}
+
+.footer-logo {
+    height: 40px;
+    margin-right: 15px;
+}
+
+.footer-text {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Adjust main content to make room for footer and prevent scrolling */
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.hero {
+    height: calc(100vh - 180px); /* 80px header + 100px footer (including padding) */
+    margin-bottom: 100px; /* Match footer total height */
+    overflow: hidden;
+}
+
+.slideshow-container {
+    border-bottom: 1px solid rgba(59, 130, 246, 0.6);
+    height: 100%;
+}
+
+.slides img {
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Make sure home button stays above footer */
+.home-button {
+    bottom: 110px;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-content {
+        height: 60px;
+    }
+
+    .footer-logo {
+        height: 30px;
+    }
+
+    .footer-text {
+        font-size: 14px;
+    }
+
+    .hero {
+        height: calc(100vh - 170px); /* 80px header + 90px footer (including padding) */
+        margin-bottom: 90px;
+    }
+
+    .home-button {
+        bottom: 100px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer-content {
+        height: 50px;
+    }
+
+    .footer-text {
+        font-size: 12px;
+    }
+
+    .hero {
+        height: calc(100vh - 160px); /* 80px header + 80px footer (including padding) */
+        margin-bottom: 80px;
+    }
+
+    .home-button {
+        bottom: 90px;
+    }
+}

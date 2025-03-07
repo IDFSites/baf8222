@@ -257,7 +257,7 @@ header h1 {
     height: 100vh;
     position: relative;
     overflow: hidden;
-    padding-top: 250px; /* Adjusted for smaller weather widget */
+    padding-top: 270px; /* Adjusted for weather widget with sunset times */
 }
 
 .slideshow-container {
@@ -324,7 +324,7 @@ header h1 {
 .weather-dash-container {
     max-width: 420px;
     margin: 0 auto;
-    height: 70px;
+    height: 85px;
     position: relative;
     overflow: hidden;
     border-radius: 4px;
@@ -365,7 +365,7 @@ header h1 {
 .weather-days {
     display: flex;
     justify-content: space-around;
-    height: 40px;
+    height: 55px;
 }
 
 .weather-day {
@@ -404,10 +404,15 @@ header h1 {
     color: #0099ff;
 }
 
+.sunset {
+    font-size: 10px;
+    color: #ffce4a;
+}
+
 /* Nav Circle and Quick Buttons */
 .nav-circle {
     position: fixed;
-    top: 130px; /* Adjusted for smaller weather widget */
+    top: 150px; /* Adjusted for taller weather widget */
     left: 0;
     width: 100%;
     display: flex;
@@ -715,7 +720,7 @@ header h1 {
     }
     
     .weather-dash-container {
-        height: 60px;
+        height: 75px;
         max-width: 350px;
     }
     
@@ -723,17 +728,17 @@ header h1 {
         font-size: 11px;
     }
     
-    .min-temp, .rain {
+    .min-temp, .rain, .sunset {
         font-size: 9px;
     }
 
     .nav-circle {
-        top: 115px; /* Adjusted for smaller weather widget on mobile */
+        top: 135px; /* Adjusted for weather widget with sunset on mobile */
         padding: 10px 0;
     }
     
     .hero {
-        padding-top: 220px; /* Adjusted for smaller weather + nav on mobile */
+        padding-top: 240px; /* Adjusted for weather with sunset + nav on mobile */
     }
 
     .nav-buttons {
@@ -787,7 +792,7 @@ header h1 {
 
 @media screen and (max-width: 480px) {
     .weather-dash-container {
-        height: 55px;
+        height: 70px;
         max-width: 300px;
     }
     
@@ -800,16 +805,16 @@ header h1 {
         font-size: 10px;
     }
     
-    .min-temp, .rain {
+    .min-temp, .rain, .sunset {
         font-size: 8px;
     }
     
     .nav-circle {
-        top: 110px; /* Further adjusted for smaller screens */
+        top: 130px; /* Adjusted for weather with sunset on small screens */
     }
     
     .hero {
-        padding-top: 210px; /* Further adjusted for smaller screens */
+        padding-top: 230px; /* Adjusted for weather with sunset on small screens */
     }
     
     .nav-buttons {

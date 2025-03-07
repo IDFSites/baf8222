@@ -39,7 +39,7 @@
                     // Function to fetch weather data
                     async function getWeather() {
                         try {
-                            const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=31.586&longitude=34.903&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FJerusalem&forecast_days=4');
+                            const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=31.586&longitude=34.903&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunset&timezone=Asia%2FJerusalem&forecast_days=4');
                             const data = await response.json();
                             
                             if (data && data.daily) {
@@ -59,6 +59,12 @@
                                     const minTemp = Math.round(data.daily.temperature_2m_min[i]);
                                     const rainProb = data.daily.precipitation_probability_max[i];
                                     
+                                    // Format sunset time (convert from ISO to HH:MM)
+                                    const sunsetTime = new Date(data.daily.sunset[i]);
+                                    const sunsetHours = sunsetTime.getHours().toString().padStart(2, '0');
+                                    const sunsetMinutes = sunsetTime.getMinutes().toString().padStart(2, '0');
+                                    const sunset = `${sunsetHours}:${sunsetMinutes}`;
+                                    
                                     html += `
                                         <div class="weather-day">
                                             <div class="day-name">${dayName}</div>
@@ -67,6 +73,7 @@
                                                 <span class="min-temp">${minTemp}°</span>
                                             </div>
                                             <div class="rain">גשם: ${rainProb}%</div>
+                                            <div class="sunset">שקיעה: ${sunset}</div>
                                         </div>
                                     `;
                                 }

@@ -720,8 +720,16 @@ header h1 {
     }
     
     .weather-dash-container {
-        height: 75px;
-        max-width: 350px;
+        height: 85px; /* Taller container */
+        max-width: 380px; /* Slightly wider */
+    }
+    
+    .weather-days {
+        height: 60px; /* More space for weather info */
+    }
+    
+    .weather-day {
+        padding: 2px 3px; /* Adjusted padding */
     }
     
     .day-name, .max-temp {
@@ -730,15 +738,16 @@ header h1 {
     
     .min-temp, .rain, .sunset {
         font-size: 9px;
+        white-space: nowrap; /* Prevent wrapping */
     }
 
     .nav-circle {
-        top: 135px; /* Adjusted for weather widget with sunset on mobile */
+        top: 145px; /* Adjusted for taller weather widget */
         padding: 10px 0;
     }
     
     .hero {
-        padding-top: 240px; /* Adjusted for weather with sunset + nav on mobile */
+        padding-top: 250px; /* Adjusted for taller weather widget + nav */
     }
 
     .nav-buttons {
@@ -792,7 +801,7 @@ header h1 {
 
 @media screen and (max-width: 480px) {
     .weather-dash-container {
-        height: 70px;
+        height: 90px; /* Increased height to fit content */
         max-width: 300px;
     }
     
@@ -801,20 +810,29 @@ header h1 {
         margin-bottom: 2px;
     }
     
+    .weather-days {
+        height: 65px; /* Increased height */
+    }
+    
+    .weather-day {
+        padding: 1px 2px; /* Reduced padding */
+    }
+    
     .day-name, .max-temp {
         font-size: 10px;
     }
     
     .min-temp, .rain, .sunset {
         font-size: 8px;
+        white-space: nowrap; /* Prevent wrapping */
     }
     
     .nav-circle {
-        top: 130px; /* Adjusted for weather with sunset on small screens */
+        top: 155px; /* Adjusted for taller weather widget */
     }
     
     .hero {
-        padding-top: 230px; /* Adjusted for weather with sunset on small screens */
+        padding-top: 250px; /* Adjusted for taller weather widget */
     }
     
     .nav-buttons {

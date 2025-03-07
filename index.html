@@ -9,6 +9,7 @@
 </head>
 <body class="index-page">
 <header>
+
     <div class="container">
         <div class="header-content">
             <img src="images/image.png" alt="Logo">
@@ -21,6 +22,72 @@
         </div>
     </div>
 </header>
+
+<div class="mini-weather-dash">
+    <div class="weather-dash-container">
+        <div class="simple-weather-widget">
+            <script>
+                (function() {
+                    // Weather widget that uses simple API
+                    const weatherWidget = document.createElement('div');
+                    weatherWidget.className = 'weather-widget-content';
+                    
+                    // Add a loading message
+                    weatherWidget.innerHTML = '<div class="weather-loading">טוען תחזית מזג אוויר...</div>';
+                    document.querySelector('.weather-dash-container').appendChild(weatherWidget);
+                    
+                    // Function to fetch weather data
+                    async function getWeather() {
+                        try {
+                            const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=31.586&longitude=34.903&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FJerusalem&forecast_days=4');
+                            const data = await response.json();
+                            
+                            if (data && data.daily) {
+                                const days = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"];
+                                let html = '<div class="weather-content">';
+                                
+                                // Add location title
+                                html += '<div class="weather-title">תחזית מזג אוויר: לכיש</div>';
+                                
+                                // Create weather grid
+                                html += '<div class="weather-days">';
+                                
+                                for (let i = 0; i < 4; i++) {
+                                    const date = new Date(data.daily.time[i]);
+                                    const dayName = days[date.getDay()];
+                                    const maxTemp = Math.round(data.daily.temperature_2m_max[i]);
+                                    const minTemp = Math.round(data.daily.temperature_2m_min[i]);
+                                    const rainProb = data.daily.precipitation_probability_max[i];
+                                    
+                                    html += `
+                                        <div class="weather-day">
+                                            <div class="day-name">${dayName}</div>
+                                            <div class="temps">
+                                                <span class="max-temp">${maxTemp}°</span>
+                                                <span class="min-temp">${minTemp}°</span>
+                                            </div>
+                                            <div class="rain">גשם: ${rainProb}%</div>
+                                        </div>
+                                    `;
+                                }
+                                
+                                html += '</div>'; // close weather-days
+                                html += '</div>'; // close weather-content
+                                
+                                weatherWidget.innerHTML = html;
+                            }
+                        } catch (error) {
+                            weatherWidget.innerHTML = '<div class="weather-error">לא ניתן לטעון את תחזית מזג האוויר</div>';
+                        }
+                    }
+                    
+                    // Load the weather data
+                    getWeather();
+                })();
+            </script>
+        </div>
+    </div>
+</div>
 
 <div class="nav-circle">
     <div class="nav-buttons">
@@ -101,6 +168,7 @@
         <img src="images/image.png" alt="Logo">
     </div>
 </section>
+
 
 <script>
     const menuBtn = document.querySelector('.menu-btn');

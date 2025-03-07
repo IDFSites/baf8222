@@ -257,7 +257,7 @@ header h1 {
     height: 100vh;
     position: relative;
     overflow: hidden;
-    padding-top: 180px; /* Increased to make room for the navigation buttons */
+    padding-top: 250px; /* Adjusted for smaller weather widget */
 }
 
 .slideshow-container {
@@ -304,10 +304,110 @@ header h1 {
     pointer-events: none;
 }
 
+/* Mini Weather Dashboard */
+.mini-weather-dash {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 998;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.4);
+    padding: 2px 0;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.weather-dash-container {
+    max-width: 420px;
+    margin: 0 auto;
+    height: 70px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.weather-widget-content {
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 12px;
+    direction: rtl;
+}
+
+.weather-loading, .weather-error {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a4ceff;
+    font-size: 14px;
+}
+
+.weather-content {
+    height: 100%;
+    padding: 5px;
+}
+
+.weather-title {
+    font-size: 11px;
+    text-align: center;
+    margin-bottom: 3px;
+    color: #a4ceff;
+}
+
+.weather-days {
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+}
+
+.weather-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 5px;
+    width: 25%;
+}
+
+.day-name {
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.temps {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 1px;
+}
+
+.max-temp {
+    color: white;
+    font-weight: bold;
+}
+
+.min-temp {
+    color: #a4ceff;
+    font-size: 11px;
+}
+
+.rain {
+    font-size: 10px;
+    color: #0099ff;
+}
+
 /* Nav Circle and Quick Buttons */
 .nav-circle {
     position: fixed;
-    top: 65px;
+    top: 130px; /* Adjusted for smaller weather widget */
     left: 0;
     width: 100%;
     display: flex;
@@ -609,10 +709,31 @@ header h1 {
     .hero-content img {
         height: 70px;
     }
+    
+    .mini-weather-dash {
+        top: 60px;
+    }
+    
+    .weather-dash-container {
+        height: 60px;
+        max-width: 350px;
+    }
+    
+    .day-name, .max-temp {
+        font-size: 11px;
+    }
+    
+    .min-temp, .rain {
+        font-size: 9px;
+    }
 
     .nav-circle {
-        top: 60px;
+        top: 115px; /* Adjusted for smaller weather widget on mobile */
         padding: 10px 0;
+    }
+    
+    .hero {
+        padding-top: 220px; /* Adjusted for smaller weather + nav on mobile */
     }
 
     .nav-buttons {
@@ -665,6 +786,32 @@ header h1 {
 }
 
 @media screen and (max-width: 480px) {
+    .weather-dash-container {
+        height: 55px;
+        max-width: 300px;
+    }
+    
+    .weather-title {
+        font-size: 10px;
+        margin-bottom: 2px;
+    }
+    
+    .day-name, .max-temp {
+        font-size: 10px;
+    }
+    
+    .min-temp, .rain {
+        font-size: 8px;
+    }
+    
+    .nav-circle {
+        top: 110px; /* Further adjusted for smaller screens */
+    }
+    
+    .hero {
+        padding-top: 210px; /* Further adjusted for smaller screens */
+    }
+    
     .nav-buttons {
         gap: 7px;
     }
@@ -1026,11 +1173,10 @@ html, body {
     overflow: auto !important; /* Force scrolling to be enabled */
 }
 
-/* Force the index page to not scroll */
+/* Allow the index page to scroll to view the weather section */
 html, body.index-page {
-    overflow: hidden !important;
+    overflow-y: auto !important;
     height: 100% !important;
-    position: fixed !important;
     width: 100% !important;
 }
 
@@ -1067,6 +1213,75 @@ body:not(.index-page) {
 .quick-button.door-button span {
     display: block;
     padding-top: 5px; /* Adjust the value as needed */
+}
+
+/* Weather Section Styles */
+.weather-section {
+    background: rgba(21, 27, 40, 0.8);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 10;
+}
+
+.weather-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    background: linear-gradient(90deg, #f8fafc, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.weather-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.3), rgba(96, 165, 250, 0.7), rgba(59, 130, 246, 0.3));
+}
+
+.weather-container {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+.weather-container:hover {
+    box-shadow: 0 5px 20px rgba(59, 130, 246, 0.3);
+    border-color: rgba(59, 130, 246, 0.4);
+}
+
+@media screen and (max-width: 768px) {
+    .weather-section {
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+    
+    .weather-section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .weather-section {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+    
+    .weather-section h2 {
+        font-size: 1.3rem;
+    }
 }
 
 

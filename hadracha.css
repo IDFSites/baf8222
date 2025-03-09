@@ -1,3 +1,5 @@
+/* ===== HADRACHA STYLES ===== */
+
 /* Common styles for hadracha page and all sub-pages */
 .training-container,
 .page-container {
@@ -31,6 +33,7 @@
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
+    margin-bottom: 50px; /* Add extra margin at the bottom */
 }
 
 /* Card and button styles */
@@ -127,43 +130,6 @@
     font-size: 1.2rem;
 }
 
-/* Footer style */
-.footer-container {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(18, 22, 33, 0.9);
-    border-top: 1px solid rgba(59, 130, 246, 0.6);
-    padding: 15px 0;
-    z-index: 900;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
-    height: 40px;
-}
-
-.footer-text {
-    color: white;
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-/* Home button positioning */
-.home-button {
-    position: fixed;
-    bottom: 85px;
-    right: 20px;
-    z-index: 990;
-    width: 70px;
-    height: 70px;
-}
-
 /* Active nav items */
 .home-nav a.active {
     background: rgba(30, 58, 138, 0.6);
@@ -171,19 +137,138 @@
     box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
 }
 
-/* ENABLE SCROLLING */
-html, body {
-    height: 100%;
-    overflow: auto !important; /* Force enable scrolling */
+/* Content page specific spacing */
+.page-container {
+    padding-bottom: 150px !important;
 }
 
-/* Responsive adjustments */
+body.lehima-page,
+body.hagnash-page,
+body.nehiga-page,
+body.gashashim-page {
+    padding-bottom: 120px;
+}
+
+/* ===== DROPDOWN STYLES ===== */
+.office-dropdown {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.office-dropdown-content {
+    display: none;
+    position: absolute;
+    background: rgb(21, 27, 40); /* Solid background */
+    border: 1px solid rgba(59, 130, 246, 0.6);
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    z-index: 950;
+    border-radius: 5px;
+    top: 100%;
+    right: 0;
+    left: 0;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+
+.office-dropdown-content.show,
+.office-dropdown-content.active {
+    display: block !important;
+    background: rgb(21, 27, 40) !important;
+}
+
+.office-dropdown-item {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    background: rgb(21, 27, 40);
+}
+
+.office-dropdown-item i {
+    margin-left: 8px;
+    font-size: 1.2rem;
+}
+
+.training-card.has-dropdown {
+    position: relative;
+    cursor: pointer;
+    z-index: 960;
+}
+
+/* Hover behaviors for desktop */
+@media (hover: hover) {
+    .office-dropdown:hover .office-dropdown-content {
+        display: block;
+    }
+
+    .office-dropdown-item:hover {
+        background: rgba(30, 58, 138, 0.8);
+    }
+    
+    .training-card.has-dropdown:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* Mobile-specific enhancements */
+@media (max-width: 768px) {
+    .office-dropdown-item {
+        padding: 15px 16px;
+        min-height: 44px;
+    }
+
+    .training-card.has-dropdown::after {
+        content: '\f107';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        color: rgba(59, 130, 246, 0.8);
+        font-size: 14px;
+    }
+
+    .office-dropdown-content {
+        max-height: 200px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .office-dropdown-item:focus {
+        outline: 2px solid rgba(59, 130, 246, 0.6);
+        background: rgba(30, 58, 138, 0.4);
+    }
+    
+    .office-dropdown-item:active {
+        background: rgba(30, 58, 138, 0.8);
+    }
+}
+
+/* Disable opacity changes on touch devices */
+@media (hover: none) {
+    .home-nav a {
+        opacity: 1 !important;
+    }
+
+    .home-nav a.active {
+        background: rgba(30, 58, 138, 0.8);
+        border-color: rgba(59, 130, 246, 0.8);
+        box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+    }
+}
+
+/* ===== RESPONSIVE STYLES ===== */
 @media screen and (max-width: 768px) {
     .training-grid,
     .link-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
         padding: 0 15px;
+        margin-bottom: 60px;
     }
 
     .training-card,
@@ -210,17 +295,6 @@ html, body {
     .training-header h1,
     .page-header h2 {
         font-size: 1.8rem;
-    }
-
-    .home-button {
-        bottom: 75px;
-        right: 15px;
-        width: 60px;
-        height: 60px;
-    }
-
-    .footer-content {
-        height: 35px;
     }
 }
 
@@ -259,301 +333,11 @@ html, body {
         font-size: 1.6rem;
     }
 
-    .home-button {
-        bottom: 65px;
-        right: 15px;
-        width: 50px;
-        height: 50px;
-    }
-
-    .home-button img {
-        width: 24px;
-        height: 24px;
-    }
-
-    .home-button span {
-        font-size: 10px;
-    }
-
-    .footer-content {
-        height: 30px;
-    }
-
-    .footer-text {
-        font-size: 0.8rem;
-    }
-
     .empty-state-icon {
         font-size: 2.5rem;
     }
 
     .empty-state-text {
         font-size: 1rem;
-    }
-}
-
-/* Add these to the end of your existing hadracha.css file */
-
-/* 2. Fix for home button overlapping with content in pages */
-.page-container {
-    padding-bottom: 150px !important; /* Increased padding to prevent overlap with home button */
-}
-
-.link-grid {
-    margin-bottom: 50px; /* Add extra margin at the bottom */
-}
-
-body.lehima-page,
-body.hagnash-page,
-body.nehiga-page,
-body.gashashim-page {
-    padding-bottom: 120px; /* Extra padding for specific pages */
-}
-
-/* Override the overflow: hidden from styles.css */
-@media screen and (max-width: 768px) {
-    .training-grid,
-    .link-grid {
-        margin-bottom: 60px;
-    }
-}
-
-/* ======= MOBILE AND DESKTOP FIXES ======= */
-
-/* Dropdown styles with fixes for overlap and see-through */
-.office-dropdown {
-    position: relative;
-    height: 100%;
-    width: 100%;
-}
-
-/* Fix dropdown positioning and styling */
-.office-dropdown-content {
-    display: none;
-    position: absolute;
-    background: rgb(21, 27, 40); /* Solid background instead of rgba */
-    border: 1px solid rgba(59, 130, 246, 0.6);
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    z-index: 950; /* Higher than footer (900) but lower than main nav (998) */
-    border-radius: 5px;
-    top: 100%;
-    right: 0;
-    left: 0;
-    margin-top: 5px;
-}
-
-/* Ensure proper positioning for the dropdown */
-.training-grid {
-    position: relative; /* Make sure we have proper stacking context */
-}
-
-/* Fix hover interaction for desktop */
-@media (hover: hover) {
-    /* For desktop devices that support hover */
-    .office-dropdown:hover .office-dropdown-content {
-        display: block;
-    }
-
-    /* Restore hover event behavior for desktop navigation links */
-    .home-nav a:hover {
-        opacity: 1 !important;
-        background: rgba(30, 58, 138, 0.4);
-        border-color: rgba(59, 130, 246, 0.3);
-        transform: scale(1.05);
-        box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
-    }
-
-    /* Fix for menu hover effect on desktop */
-    .home-nav a:hover ~ a {
-        opacity: 0.7;
-    }
-
-    /* Fix hover on dropdown items */
-    .office-dropdown-item:hover {
-        background: rgba(30, 58, 138, 0.8);
-    }
-
-    /* Prevent dropdown from instantly disappearing when moving cursor */
-    .office-dropdown-content {
-        padding-top: 5px; /* Add some padding to prevent gaps */
-    }
-}
-
-.office-dropdown-item {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    transition: all 0.3s ease;
-    background: rgb(21, 27, 40); /* Solid background for items too */
-}
-
-.office-dropdown-item:hover,
-.office-dropdown-item:focus {
-    background: rgba(30, 58, 138, 0.8);
-}
-
-.office-dropdown-item i {
-    margin-left: 8px;
-    font-size: 1.2rem;
-}
-
-/* Ensure the training card has the correct position for the dropdown */
-.training-card.has-dropdown {
-    position: relative;
-    cursor: pointer;
-    z-index: 960; /* Higher than dropdown content but lower than main menu */
-}
-
-/* Disable opacity changes on touch devices */
-@media (hover: none) {
-    .home-nav a {
-        opacity: 1 !important;
-    }
-
-    /* Make active item stand out more on mobile */
-    .home-nav a.active {
-        background: rgba(30, 58, 138, 0.8);
-        border-color: rgba(59, 130, 246, 0.8);
-        box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
-    }
-}
-
-/* Mobile-specific enhancements */
-@media (max-width: 768px) {
-    /* Increase touch target sizes on mobile */
-    .office-dropdown-item {
-        padding: 15px 16px;
-        min-height: 44px; /* Apple recommends minimum 44px touch targets */
-    }
-
-    /* Visual indicator for dropdown */
-    .training-card.has-dropdown::after {
-        content: '\f107'; /* Font Awesome down arrow */
-        font-family: 'Font Awesome 5 Free';
-        font-weight: 900;
-        position: absolute;
-        bottom: 5px;
-        right: 5px;
-        color: rgba(59, 130, 246, 0.8);
-        font-size: 14px;
-    }
-
-    /* Make sure dropdown doesn't go off-screen */
-    .office-dropdown-content {
-        max-height: 200px;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* Add visible focus styles for accessibility */
-    .office-dropdown-item:focus {
-        outline: 2px solid rgba(59, 130, 246, 0.6);
-        background: rgba(30, 58, 138, 0.4);
-    }
-}
-
-/* Fix for any opacity or visibility issues with dropdown */
-.office-dropdown-content.show {
-    display: block !important;
-    background: rgb(21, 27, 40) !important;
-}
-
-/* Fix hover state on mobile for Office dropdown card */
-.training-card.has-dropdown:hover {
-    transform: none;
-}
-
-/* Only apply hover transform when the device supports hover */
-@media (hover: hover) {
-    .training-card.has-dropdown:hover {
-        transform: translateY(-5px);
-    }
-}
-
-/* Add these rules to the end of your hadracha.css file */
-
-/* Basic dropdown styles */
-.office-dropdown {
-    position: relative;
-    height: 100%;
-    width: 100%;
-}
-
-.office-dropdown-content {
-    display: none;
-    position: absolute;
-    background: rgb(21, 27, 40); /* Solid background */
-    border: 1px solid rgba(59, 130, 246, 0.6);
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    z-index: 950; /* Higher than footer (900) but lower than main menu z-index (998) */
-    border-radius: 5px;
-    top: 100%;
-    right: 0;
-    left: 0;
-    margin-top: 5px;
-}
-
-/* Show dropdown on hover for desktop only */
-@media (hover: hover) {
-    .office-dropdown:hover .office-dropdown-content {
-        display: block;
-    }
-}
-
-/* Toggle behavior for mobile - similar to menu button */
-.office-dropdown-content.active {
-    display: block !important;
-}
-
-.office-dropdown-item {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-
-.office-dropdown-item:hover {
-    background: rgba(30, 58, 138, 0.6);
-}
-
-.office-dropdown-item i {
-    margin-left: 8px;
-    font-size: 1.2rem;
-}
-
-/* Ensure the training card has the correct position for the dropdown */
-.training-card.has-dropdown {
-    position: relative;
-    cursor: pointer;
-}
-
-/* Add visual indicator for dropdown on mobile */
-@media (max-width: 768px) {
-    .training-card.has-dropdown::after {
-        content: '\f107'; /* FontAwesome down arrow */
-        font-family: 'Font Awesome 5 Free';
-        font-weight: 900;
-        position: absolute;
-        bottom: 8px;
-        right: 8px;
-        color: rgba(59, 130, 246, 0.8);
-        font-size: 14px;
-    }
-
-    /* Make sure dropdown items are large enough to tap */
-    .office-dropdown-item {
-        padding: 16px;
-        min-height: 44px; /* Apple's recommended size */
-    }
-
-    /* Visual feedback when item is tapped */
-    .office-dropdown-item:active {
-        background: rgba(30, 58, 138, 0.8);
     }
 }

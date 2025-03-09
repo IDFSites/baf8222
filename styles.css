@@ -1,3 +1,4 @@
+/* ===== BASE STYLES ===== */
 :root {
     --primary-color: #0a1929;
     --secondary-color: #1e3a8a;
@@ -50,7 +51,7 @@ body::before {
     padding: 0 20px;
 }
 
-/* Modern header with glass effect */
+/* ===== HEADER STYLES ===== */
 header {
     position: fixed;
     top: 0;
@@ -95,6 +96,7 @@ header h1 {
     gap: 15px;
 }
 
+/* ===== BUTTON STYLES ===== */
 .weather-toggle-btn {
     display: flex;
     align-items: center;
@@ -151,7 +153,7 @@ header h1 {
     background-color: var(--accent-glow);
 }
 
-/* Modern sleek navigation */
+/* ===== NAVIGATION STYLES ===== */
 .nav-menu {
     position: fixed;
     top: 70px;
@@ -212,7 +214,7 @@ header h1 {
     left: 100%;
 }
 
-/* Home page navigation (slide-in menu) */
+/* ===== HOME PAGE NAVIGATION ===== */
 .home-nav {
     position: fixed;
     top: 0;
@@ -297,9 +299,21 @@ header h1 {
     left: 100%;
 }
 
-/* Hero section with modern elements */
+/* Add more futuristic elements */
+.home-nav::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.05), transparent 70%);
+    pointer-events: none;
+}
+
+/* ===== HERO SECTION ===== */
 .hero {
-    height: 95vh; /* Increased height for better visual effect with overlay */
+    height: 95vh;
     position: relative;
     overflow: hidden;
     padding-top: 0;
@@ -312,6 +326,7 @@ header h1 {
     left: 0;
     width: 100%;
     height: 100%;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.6);
 }
 
 .slides {
@@ -350,212 +365,6 @@ header h1 {
     pointer-events: none;
 }
 
-/* Mini Weather Dashboard */
-.mini-weather-dash {
-    position: fixed;
-    top: 65px;
-    left: 0;
-    width: 100%;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 998;
-    border-bottom: 1px solid rgba(59, 130, 246, 0.4);
-    padding: 2px 0;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    transform: translateY(-100%);
-    transition: transform 0.3s ease-in-out;
-}
-
-.mini-weather-dash.active {
-    transform: translateY(0);
-}
-
-.weather-dash-container {
-    max-width: 420px;
-    margin: 0 auto;
-    height: 85px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    background: rgba(15, 23, 42, 0.9);
-    border: 1px solid rgba(59, 130, 246, 0.3);
-}
-
-.weather-widget-content {
-    width: 100%;
-    height: 100%;
-    color: white;
-    font-size: 12px;
-    direction: rtl;
-}
-
-.weather-loading, .weather-error {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #a4ceff;
-    font-size: 14px;
-}
-
-.weather-content {
-    height: 100%;
-    padding: 5px;
-}
-
-.weather-title {
-    font-size: 11px;
-    text-align: center;
-    margin-bottom: 3px;
-    color: #a4ceff;
-}
-
-.weather-days {
-    display: flex;
-    justify-content: space-around;
-    height: 55px;
-}
-
-.weather-day {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2px 5px;
-    width: 25%;
-}
-
-.day-name {
-    font-weight: bold;
-    font-size: 12px;
-    margin-bottom: 2px;
-}
-
-.temps {
-    display: flex;
-    gap: 5px;
-    margin-bottom: 1px;
-}
-
-.max-temp {
-    color: white;
-    font-weight: bold;
-}
-
-.min-temp {
-    color: #a4ceff;
-    font-size: 11px;
-}
-
-.rain {
-    font-size: 10px;
-    color: #0099ff;
-}
-
-.sunset {
-    font-size: 10px;
-    color: #ffce4a;
-}
-
-/* Nav Circle and Quick Buttons */
-.nav-circle {
-    position: fixed;
-    top: 60px; /* Adjusted since weather widget is now hidden by default */
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 0;
-    background: rgba(15, 23, 42, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 998; /* Just below weather dash but above other content */
-    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
-    transition: top 0.3s ease-in-out;
-}
-
-/* Move nav-circle down when weather widget is active */
-.mini-weather-dash.active + .nav-circle {
-    top: 150px;
-}
-
-.nav-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    padding: 0 20px;
-}
-
-.quick-button {
-    width: 90px;
-    height: 90px;
-    background: rgba(21, 27, 40, 0.95);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-    text-decoration: none;
-    color: white;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(59, 130, 246, 0.5);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    margin: 0 5px;
-}
-
-.quick-button:hover {
-    background: rgba(30, 58, 138, 0.8);
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
-    border-color: rgba(59, 130, 246, 0.7);
-}
-
-/* Icon container to maintain icon proportions */
-.icon-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    margin-bottom: 8px;
-}
-
-.quick-button img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    filter: brightness(0) invert(1);
-    object-fit: contain;
-}
-
-/* Set the door icon back to its original size */
-.quick-button.door-button .icon-container {
-    width: 40px;
-    height: 40px;
-}
-
-.quick-button.door-button img {
-    max-width: 100%;
-    max-height: 100%;
-    transform: scale(0.8); /* Reduce to original size */
-}
-
-.quick-button span {
-    text-align: center;
-    font-size: 14px;
-    width: 100%;
-    line-height: 1.3;
-}
-
-/* Modern hero content with animations */
 .hero-content {
     position: absolute;
     top: 50%;
@@ -596,18 +405,11 @@ header h1 {
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 10;
-    -webkit-backdrop-filter: blur(10px);
     padding: 2rem;
-    /* Make it non-square with more organic shape */
-
-
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
     width: 85%;
     max-width: 500px;
     animation: fadeIn 1.5s ease-out forwards;
 }
-
-
 
 .hero-welcome-banner h2 {
     font-size: 2.5rem;
@@ -625,50 +427,290 @@ header h1 {
     animation: pulse 2s infinite ease-in-out;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+/* ===== QUICK BUTTONS & NAV CIRCLE ===== */
+.nav-circle {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 998;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    transition: top 0.3s ease-in-out;
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.7));
-    }
-    50% {
-        transform: scale(1.05);
-        filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.9));
-    }
-    100% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.7));
-    }
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    padding: 0 20px;
 }
 
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.quick-button {
+    width: 90px;
+    height: 90px;
+    background: rgba(21, 27, 40, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(59, 130, 246, 0.5);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin: 0 5px;
 }
 
-/* Add more futuristic elements */
-.home-nav::after {
+.quick-button:hover {
+    background: rgba(30, 58, 138, 0.8);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+    border-color: rgba(59, 130, 246, 0.7);
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+}
+
+.quick-button img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    filter: brightness(0) invert(1);
+    object-fit: contain;
+}
+
+.quick-button span {
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    line-height: 1.3;
+    white-space: normal;
+    padding: 0 2px;
+    display: block;
+}
+
+/* Icon-specific styles */
+.quick-button.door-button .icon-container {
+    width: 40px;
+    height: 40px;
+}
+
+.quick-button.door-button img {
+    max-width: 100%;
+    max-height: 100%;
+    transform: scale(0.8);
+}
+
+.quick-button.door-button span {
+    display: block;
+    padding-top: 5px;
+}
+
+.quick-button.map-button .icon-container img,
+.quick-button.phone-button .icon-container img {
+    width: auto;
+    height: auto;
+    transform: scale(1.25);
+}
+
+/* ===== WEATHER WIDGET STYLES ===== */
+.mini-weather-dash {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 999;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.4);
+    padding: 2px 0;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.mini-weather-dash.active {
+    transform: translateY(0);
+}
+
+.weather-dash-container {
+    max-width: 450px;
+    margin: 0 auto;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.weather-widget-content {
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 12px;
+    direction: rtl;
+}
+
+.weather-loading, .weather-error {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a4ceff;
+    font-size: 14px;
+}
+
+.weather-content {
+    height: 100%;
+    padding: 5px;
+}
+
+.weather-title {
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 4px;
+    color: #a4ceff;
+}
+
+.weather-days {
+    display: flex;
+    justify-content: space-around;
+    height: 70px;
+    padding: 5px 0;
+}
+
+.weather-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 5px;
+    width: 25%;
+}
+
+.day-name {
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 3px;
+}
+
+.temps {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 2px;
+}
+
+.max-temp {
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.min-temp {
+    color: #a4ceff;
+    font-size: 11px;
+}
+
+.rain {
+    font-size: 10px;
+    color: #0099ff;
+    margin-bottom: 2px;
+}
+
+.sunset {
+    font-size: 10px;
+    color: #ffce4a;
+}
+
+/* Position adjustments for weather widget */
+.mini-weather-dash.active + .nav-circle {
+    top: 170px;
+}
+
+.hero {
+    padding-top: 120px;
+}
+
+.mini-weather-dash.active + .nav-circle + section.hero {
+    padding-top: 270px;
+}
+
+/* ===== PAGE HERO SECTION ===== */
+.page-hero {
+    height: 250px;
+    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9)), url('images/im1.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    overflow: hidden;
+}
+
+.page-hero::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.05), transparent 70%);
-    pointer-events: none;
+    background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.5;
 }
 
-/* Nav grid layout for school pages */
+.page-hero-content {
+    text-align: center;
+    z-index: 2;
+}
+
+.hero-icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+}
+
+.page-hero-content h2 {
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem;
+    background: linear-gradient(90deg, #f8fafc, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.page-hero-content p {
+    font-size: 1.2rem;
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* ===== NAV GRID ===== */
 .nav-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -748,330 +790,43 @@ header h1 {
     transform: translateX(-5px);
 }
 
-/* Page hero section for sub-pages */
-.page-hero {
-    height: 250px;
-    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9)), url('images/im1.png');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 60px;
-    overflow: hidden;
-}
-
-.page-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+/* ===== FOOTER STYLES ===== */
+.footer-container {
     width: 100%;
-    height: 100%;
-    background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
-    background-size: 20px 20px;
-    opacity: 0.5;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(18, 22, 33, 0.9);
+    border-top: 1px solid rgba(59, 130, 246, 0.6);
+    padding: 15px 0;
+    z-index: 900;
 }
 
-.page-hero-content {
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 70px;
+}
+
+.footer-text {
+    color: white;
+    font-size: 16px;
     text-align: center;
-    z-index: 2;
 }
 
-.hero-icon {
-    font-size: 3rem;
-    color: var(--accent-color);
-    margin-bottom: 1rem;
-    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+.static-footer {
+    position: static !important;
+    margin-top: 30px;
+    bottom: auto !important;
 }
 
-.page-hero-content h2 {
-    font-size: 2.5rem;
-    margin: 0 0 0.5rem;
-    background: linear-gradient(90deg, #f8fafc, #60a5fa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.page-hero-content p {
-    font-size: 1.2rem;
-    margin: 0;
-    opacity: 0.8;
-}
-
-/* Mobile responsiveness improvements */
-@media screen and (max-width: 768px) {
-    header img {
-        height: 30px;
-    }
-
-    header h1 {
-        font-size: 1.2rem;
-    }
-
-    .header-icons {
-        gap: 10px;
-    }
-
-    .weather-toggle-btn {
-        min-width: 44px;
-        min-height: 44px;
-        padding: 10px;
-        margin: -10px;
-        font-size: 1.2rem;
-    }
-
-    .menu-btn {
-        min-width: 44px;
-        min-height: 44px;
-        padding: 10px;
-        margin: -10px;
-    }
-
-    .home-nav a {
-        font-size: 1.5rem;
-        padding: 0.5rem 1rem;
-        width: 80%;
-    }
-
-    .hero-content h2 {
-        font-size: 2.2rem;
-        padding: 0 1rem;
-        white-space: normal;
-        line-height: 1.2;
-    }
-
-    .hero-content img {
-        height: 70px;
-    }
-    
-    .hero-welcome-banner {
-        width: 90%;
-        padding: 1.5rem;
-        /* Adjust clip-path for smaller screens */
-        clip-path: polygon(
-            0 8px, 
-            8px 0, 
-            calc(100% - 8px) 0, 
-            100% 8px, 
-            100% calc(100% - 8px), 
-            calc(100% - 8px) 100%, 
-            8px 100%, 
-            0 calc(100% - 8px)
-        );
-    }
-    
-    .hero-welcome-banner h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-    
-    .hero-welcome-banner img {
-        height: 60px;
-    }
-}
-    
-    .mini-weather-dash {
-        top: 60px;
-    }
-    
-    .weather-dash-container {
-        height: 85px; /* Taller container */
-        max-width: 380px; /* Slightly wider */
-    }
-    
-    .weather-days {
-        height: 60px; /* More space for weather info */
-    }
-    
-    .weather-day {
-        padding: 2px 3px; /* Adjusted padding */
-    }
-    
-    .day-name, .max-temp {
-        font-size: 11px;
-    }
-    
-    .min-temp, .rain, .sunset {
-        font-size: 9px;
-        white-space: nowrap; /* Prevent wrapping */
-    }
-
-    .nav-circle {
-        top: 145px; /* Adjusted for taller weather widget */
-        padding: 8px 0;
-    }
-    
-    .hero {
-        padding-top: 0; /* No longer needed with new layout */
-        height: 60vh;
-    }
-
-    .nav-buttons {
-        gap: 8px;
-    }
-
-    .quick-button {
-        width: 80px;
-        height: 80px;
-        padding: 6px;
-        margin: 0 3px;
-    }
-
-    .icon-container {
-        width: 35px;
-        height: 35px;
-        margin-bottom: 5px;
-    }
-
-    /* Maintain original door icon size on mobile */
-    .quick-button.door-button .icon-container {
-        width: 28px;
-        height: 28px;
-    }
-
-    .quick-button span {
-        font-size: 11px;
-    }
-
-    .nav-grid {
-        grid-template-columns: 1fr;
-        margin-top: 6rem;
-        padding: 0 1rem;
-    }
-
-    .page-hero {
-        height: 200px;
-    }
-
-    .page-hero-content h2 {
-        font-size: 1.8rem;
-    }
-
-    .page-hero-content p {
-        font-size: 1rem;
-    }
-
-    .hero-icon {
-        font-size: 2.5rem;
-    }
-
-
-@media screen and (max-width: 480px) {
-    .weather-dash-container {
-        height: 90px; /* Increased height to fit content */
-        max-width: 300px;
-    }
-    
-    .weather-title {
-        font-size: 10px;
-        margin-bottom: 2px;
-    }
-    
-    .weather-days {
-        height: 65px; /* Increased height */
-    }
-    
-    .weather-day {
-        padding: 1px 2px; /* Reduced padding */
-    }
-    
-    .day-name, .max-temp {
-        font-size: 10px;
-    }
-    
-    .min-temp, .rain, .sunset {
-        font-size: 8px;
-        white-space: nowrap; /* Prevent wrapping */
-    }
-    
-    .nav-circle {
-        top: 155px; /* Adjusted for taller weather widget */
-        padding: 6px 0;
-    }
-    
-    .hero {
-        padding-top: 0; /* No longer needed with new layout */
-        height: 50vh;
-    }
-    
-    .nav-buttons {
-        gap: 5px;
-        padding: 0 10px;
-    }
-
-    .quick-button {
-        width: 70px;
-        height: 70px;
-        padding: 5px;
-        margin: 0 2px;
-    }
-
-    .icon-container {
-        width: 30px;
-        height: 30px;
-        margin-bottom: 4px;
-    }
-
-    /* Maintain original door icon size on small mobile */
-    .quick-button.door-button .icon-container {
-        width: 25px;
-        height: 25px;
-    }
-
-    .quick-button span {
-        font-size: 9px;
-    }
-}
-
-/* Specific adjustments for icons that may need special handling */
-.quick-button.map-button .icon-container img,
-.quick-button.gpt-button .icon-container img,
-.quick-button.phone-button .icon-container img,
-.quick-button.waze-button .icon-container img {
-    /* Make all other icons larger to match the door icon */
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-/* Individual specific adjustments if needed */
-.quick-button.map-button .icon-container img {
-    width: auto;
-    height: auto;
-    transform: scale(1.25); /* Scale up by 25% */
-}
-
-.quick-button.phone-button .icon-container img {
-    width: auto;
-    height: auto;
-    transform: scale(1.25); /* Scale up by 25% */
-}
-
-/* Contact button icon styling */
-.quick-button.contact-button .icon-container i {
-    font-size: 1.6rem;
-}
-
-@media screen and (max-width: 768px) {
-    .quick-button.contact-button .icon-container i {
-        font-size: 1.4rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .quick-button.contact-button .icon-container i {
-        font-size: 1.2rem;
-    }
-}
-
-/* Stand-alone home button styling that will work regardless of HTML structure */
+/* ===== HOME BUTTON ===== */
 .home-button {
     position: fixed;
-    bottom: 2rem;
+    bottom: 110px;
     right: 2rem;
     width: 110px;
     height: 110px;
@@ -1108,305 +863,9 @@ header h1 {
     text-align: center;
 }
 
-@media screen and (max-width: 768px) {
-    .home-button {
-        bottom: 1.5rem;
-        right: 1.5rem;
-        width: 95px;
-        height: 95px;
-    }
-
-    .home-button img {
-        width: 34px;
-        height: 34px;
-    }
-
-    .home-button span {
-        font-size: 12px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .home-button {
-        bottom: 1rem;
-        right: 1rem;
-        width: 80px;
-        height: 80px;
-    }
-
-    .home-button img {
-        width: 28px;
-        height: 28px;
-        margin-bottom: 5px;
-    }
-
-    .home-button span {
-        font-size: 10px;
-    }
-}
-
-/* Footer that matches the navigation boxes */
-.footer-container {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(18, 22, 33, 0.9);
-    border-top: 1px solid rgba(59, 130, 246, 0.6);
-    padding: 10px 0;
-    z-index: 900;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
-    height: 50px;
-}
-
-.footer-logo {
-    height: 35px;
-    margin-right: 15px;
-}
-
-.footer-text {
-    color: white;
-    font-size: 14px;
-    text-align: center;
-}
-
-/* Adjust main content to make room for footer */
-.hero {
-    height: calc(100vh - 130px); /* 80px header + 50px footer */
-    margin-bottom: 50px; /* Match footer height */
-}
-
-.slideshow-container {
-    border-bottom: 1px solid rgba(59, 130, 246, 0.6);
-}
-
-/* Make sure home button stays above footer */
-.home-button {
-    bottom: 60px;
-}
-
-@media screen and (max-width: 768px) {
-    .footer-content {
-        height: 40px;
-    }
-
-    .footer-logo {
-        height: 25px;
-    }
-
-    .footer-text {
-        font-size: 12px;
-    }
-
-    .hero {
-        height: calc(100vh - 120px); /* 80px header + 40px footer */
-        margin-bottom: 40px;
-    }
-
-    .home-button {
-        bottom: 50px;
-    }
-}
-
-/* Footer that matches the navigation boxes - taller version */
-.footer-container {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(18, 22, 33, 0.9);
-    border-top: 1px solid rgba(59, 130, 246, 0.6);
-    padding: 15px 0;
-    z-index: 900;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
-    height: 70px; /* Increased height */
-}
-
-.footer-logo {
-    height: 40px;
-    margin-right: 15px;
-}
-
-.footer-text {
-    color: white;
-    font-size: 16px;
-    text-align: center;
-}
-
-/* Adjust main content to make room for footer and prevent scrolling - only on index page */
-html, body {
-    height: 100%;
-    overflow: auto !important;
-}
-
-/* Enable scrolling for all other pages */
-html, body:not(.index-page) {
-    height: 100%;
-    overflow: auto !important;
-}
-
-.hero {
-    height: calc(100vh - 180px); /* 80px header + 100px footer (including padding) */
-    margin-bottom: 100px; /* Match footer total height */
-    overflow: hidden;
-}
-
-.slideshow-container {
-    border-bottom: 1px solid rgba(59, 130, 246, 0.6);
-    height: 100%;
-}
-
-.slides img {
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Make sure home button stays above footer */
-.home-button {
-    bottom: 110px;
-}
-
-@media screen and (max-width: 768px) {
-    .footer-content {
-        height: 60px;
-    }
-
-    .footer-logo {
-        height: 30px;
-    }
-
-    .footer-text {
-        font-size: 14px;
-    }
-
-    .hero {
-        height: calc(100vh - 170px); /* 80px header + 90px footer (including padding) */
-        margin-bottom: 90px;
-    }
-
-    .home-button {
-        bottom: 100px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .footer-content {
-        height: 50px;
-    }
-
-    .footer-text {
-        font-size: 12px;
-    }
-
-    .hero {
-        height: calc(100vh - 160px); /* 80px header + 80px footer (including padding) */
-        margin-bottom: 80px;
-    }
-
-    .home-button {
-        bottom: 90px;
-    }
-}
-
-/* Add these to the end of your existing styles.css file */
-
-/* 1. Fix for nav buttons to display in one row with larger text */
-@media screen and (max-width: 768px) {
-    .nav-buttons {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        padding: 10px 5px;
-        justify-content: flex-start;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE and Edge */
-        width: 100%;
-        max-width: 100%;
-        position: relative;
-        z-index: 980; /* Lower than main menu and dropdowns */
-    }
-
-    .nav-buttons::-webkit-scrollbar {
-        display: none; /* Hide scrollbar for Chrome/Safari/Opera */
-    }
-
-    .quick-button {
-        min-width: 95px;
-        flex: 0 0 auto;
-        margin: 0 5px;
-    }
-
-    .quick-button span {
-        font-size: 14px;
-        white-space: nowrap;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .quick-button span {
-        font-size: 12px;
-    }
-}
-
-/* Fix for footer potentially causing issues */
-.footer-container {
-    z-index: 980; /* Make sure it's below the home button z-index */
-}
-
-.home-button {
-    z-index: 990; /* Keep this higher than footer but not higher than nav */
-}
-
-/* Fix
-
-
-/* Fix for scroll issues - Override previous settings */
-html, body {
-    height: 100%;
-    overflow: auto !important; /* Force scrolling to be enabled */
-}
-
-/* Static footer style - used for content pages */
-.static-footer {
-    position: static !important;
-    margin-top: 30px;
-    bottom: auto !important;
-}
-
-/* Allow the index page to scroll to view the weather section */
-html, body.index-page {
-    overflow-y: auto !important;
-    height: 100% !important;
-    width: 100% !important;
-}
-
-/* Text alignment fix for quick buttons */
-.quick-button span {
-    text-align: center;
-    width: 100%;
-    display: block;
-    line-height: 1.3;
-    white-space: normal; /* Allow text to wrap properly */
-}
-
-/* Welcome Section & Banner */
+/* ===== WELCOME SECTION ===== */
 .welcome-section {
-    padding-top: 270px; /* Space for header, weather, and nav-circle */
+    padding-top: 270px;
     margin-bottom: 0;
 }
 
@@ -1440,7 +899,7 @@ html, body.index-page {
     filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.7));
 }
 
-/* Overlay Vision & Mission section */
+/* ===== VISION & MISSION SECTION ===== */
 .overlay-vision-mission {
     position: absolute;
     top: 50%;
@@ -1450,8 +909,8 @@ html, body.index-page {
     padding: 3rem 0 2rem;
     margin: 0;
     z-index: 10;
-    background: linear-gradient(to right, rgba(10, 15, 30, 0.85), rgba(15, 23, 42, 0.75), rgba(10, 15, 30, 0.85)); /* Gradient background */
-    backdrop-filter: blur(5px); /* Blur effect for modern browsers */
+    background: linear-gradient(to right, rgba(10, 15, 30, 0.85), rgba(15, 23, 42, 0.75), rgba(10, 15, 30, 0.85));
+    backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-top: 1px solid rgba(59, 130, 246, 0.4);
     border-bottom: 1px solid rgba(59, 130, 246, 0.4);
@@ -1514,7 +973,7 @@ html, body.index-page {
     flex: 1;
     min-width: 300px;
     max-width: 500px;
-    background: rgba(30, 41, 59, 0.4); /* More transparent background */
+    background: rgba(30, 41, 59, 0.4);
     border: 1px solid rgba(59, 130, 246, 0.3);
     padding: 2rem;
     border-radius: 0;
@@ -1522,7 +981,7 @@ html, body.index-page {
     transition: var(--transition);
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(5px); /* Additional blur for card content */
+    backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
 
@@ -1530,7 +989,7 @@ html, body.index-page {
     border-color: rgba(59, 130, 246, 0.6);
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
     transform: translateY(-5px);
-    background: rgba(30, 41, 59, 0.5); /* Slightly less transparent on hover */
+    background: rgba(30, 41, 59, 0.5);
 }
 
 .home-vision-card::before, .home-mission-card::before {
@@ -1594,10 +1053,242 @@ html, body.index-page {
     transform: translateX(-5px);
 }
 
-/* Responsive adjustments for Welcome, Vision & Mission sections */
-@media (max-width: 768px) {
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.7));
+    }
+    50% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.9));
+    }
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.7));
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media screen and (max-width: 768px) {
+    /* Header */
+    header img {
+        height: 30px;
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    .header-icons {
+        gap: 10px;
+    }
+
+    /* Buttons */
+    .weather-toggle-btn, .menu-btn {
+        min-width: 44px;
+        min-height: 44px;
+        padding: 10px;
+        margin: -10px;
+    }
+
+    .weather-toggle-btn {
+        font-size: 1.2rem;
+    }
+
+    /* Navigation */
+    .home-nav a {
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+        width: 80%;
+    }
+
+    /* Hero */
+    .hero-content h2 {
+        font-size: 2.2rem;
+        padding: 0 1rem;
+        white-space: normal;
+        line-height: 1.2;
+    }
+
+    .hero-content img {
+        height: 70px;
+    }
+    
+    .hero-welcome-banner {
+        width: 90%;
+        padding: 1.5rem;
+        clip-path: polygon(
+            0 8px, 
+            8px 0, 
+            calc(100% - 8px) 0, 
+            100% 8px, 
+            100% calc(100% - 8px), 
+            calc(100% - 8px) 100%, 
+            8px 100%, 
+            0 calc(100% - 8px)
+        );
+    }
+    
+    .hero-welcome-banner h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-welcome-banner img {
+        height: 60px;
+    }
+    
+    /* Weather */
+    .mini-weather-dash {
+        top: 60px;
+    }
+    
+    .weather-dash-container {
+        height: 100px;
+        max-width: 420px;
+    }
+    
+    .weather-days {
+        height: 70px;
+    }
+    
+    /* Navigation circle */
+    .nav-circle {
+        top: 60px;
+        padding: 8px 0;
+    }
+    
+    .mini-weather-dash.active + .nav-circle {
+        top: 165px;
+    }
+    
+    .hero {
+        padding-top: 120px;
+        height: 80vh;
+        margin-top: 1.5rem;
+    }
+    
+    .mini-weather-dash.active + .nav-circle + section.hero {
+        padding-top: 265px;
+    }
+    
+    /* Quick buttons */
+    .nav-buttons {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 10px 5px;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+        z-index: 980;
+        gap: 8px;
+    }
+    
+    .nav-buttons::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .quick-button {
+        min-width: 95px;
+        flex: 0 0 auto;
+        margin: 0 5px;
+        width: 80px;
+        height: 80px;
+        padding: 6px;
+    }
+    
+    .icon-container {
+        width: 35px;
+        height: 35px;
+        margin-bottom: 5px;
+    }
+    
+    .quick-button span {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+    
+    .quick-button.door-button .icon-container {
+        width: 28px;
+        height: 28px;
+    }
+    
+    /* Grid */
+    .nav-grid {
+        grid-template-columns: 1fr;
+        margin-top: 6rem;
+        padding: 0 1rem;
+    }
+    
+    /* Page hero */
+    .page-hero {
+        height: 200px;
+    }
+    
+    .page-hero-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .page-hero-content p {
+        font-size: 1rem;
+    }
+    
+    .hero-icon {
+        font-size: 2.5rem;
+    }
+    
+    /* Home button */
+    .home-button {
+        bottom: 100px;
+        right: 1.5rem;
+        width: 95px;
+        height: 95px;
+    }
+    
+    .home-button img {
+        width: 34px;
+        height: 34px;
+    }
+    
+    .home-button span {
+        font-size: 12px;
+    }
+    
+    /* Footer */
+    .footer-content {
+        height: 60px;
+    }
+    
+    .footer-text {
+        font-size: 14px;
+    }
+    
+    .hero {
+        height: calc(100vh - 170px);
+        margin-bottom: 90px;
+    }
+    
+    /* Welcome Section */
     .welcome-section {
-        padding-top: 220px; /* Adjusted for mobile layout */
+        padding-top: 220px;
     }
     
     .welcome-banner {
@@ -1613,6 +1304,7 @@ html, body.index-page {
         height: 55px;
     }
     
+    /* Vision & Mission */
     .overlay-vision-mission {
         padding: 2rem 0 1.5rem;
     }
@@ -1632,80 +1324,91 @@ html, body.index-page {
     .home-vision-card p, .home-mission-card p {
         font-size: 1rem;
     }
-    
-    .hero {
-        height: 80vh;
-        margin-top: 1.5rem;
-    }
 }
 
-@media (max-width: 480px) {
-    .welcome-section {
-        padding-top: 200px; /* Further adjusted for smaller mobile screens */
+@media screen and (max-width: 480px) {
+    /* Weather */
+    .weather-dash-container {
+        height: 110px;
+        max-width: 340px;
     }
     
-    .welcome-banner {
-        padding: 1rem 0;
+    .weather-title {
+        font-size: 12px;
+        margin-bottom: 4px;
     }
     
-    .welcome-banner h2 {
-        font-size: 1.7rem;
-        margin-bottom: 0.6rem;
+    .weather-days {
+        height: 75px;
     }
     
-    .welcome-banner img {
-        height: 45px;
+    .weather-day {
+        padding: 2px 4px;
     }
     
-    .overlay-vision-mission {
-        padding: 1.5rem 0 1rem;
+    .day-name, .max-temp {
+        font-size: 12px;
     }
     
-    .section-title {
-        font-size: 1.7rem;
+    .min-temp, .rain, .sunset {
+        font-size: 10px;
+        white-space: nowrap;
     }
     
-    .home-vision-card, .home-mission-card {
-        padding: 1.5rem;
-        min-width: 250px; /* Smaller minimum width */
+    /* Navigation circle */
+    .nav-circle {
+        top: 60px;
+        padding: 6px 0;
     }
     
-    .home-card-header i {
-        font-size: 1.4rem;
-    }
-    
-    .home-card-header h3 {
-        font-size: 1.3rem;
+    .mini-weather-dash.active + .nav-circle {
+        top: 175px;
     }
     
     .hero {
+        padding-top: 120px;
         height: 70vh;
         margin-top: 1rem;
     }
     
-    /* Stack cards in one column */
-    .vision-mission-cards {
-        flex-direction: column;
-        gap: 20px;
+    .mini-weather-dash.active + .nav-circle + section.hero {
+        padding-top: 275px;
     }
-}
-
-/* Specifically fix the door button text alignment */
-.quick-button.door-button span {
-    padding: 0 4px;
-}
-
-@media screen and (max-width: 480px) {
+    
+    /* Quick buttons */
+    .nav-buttons {
+        gap: 5px;
+        padding: 0 10px;
+    }
+    
+    .quick-button {
+        width: 70px;
+        height: 70px;
+        padding: 5px;
+        margin: 0 2px;
+    }
+    
+    .icon-container {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 4px;
+    }
+    
+    .quick-button.door-button .icon-container {
+        width: 25px;
+        height: 25px;
+    }
+    
     .quick-button span {
         font-size: 12px;
         white-space: normal;
         padding: 0 2px;
     }
     
+    /* Hero banner */
     .hero-welcome-banner {
         width: 95%;
         padding: 1.2rem;
-        /* Smaller clip-path for mobile */
         clip-path: polygon(
             0 6px, 
             6px 0, 
@@ -1726,296 +1429,99 @@ html, body.index-page {
     .hero-welcome-banner img {
         height: 50px;
     }
+    
+    /* Footer */
+    .footer-content {
+        height: 50px;
+    }
+    
+    .footer-text {
+        font-size: 12px;
+    }
+    
+    .hero {
+        height: calc(100vh - 160px);
+        margin-bottom: 80px;
+    }
+    
+    .home-button {
+        bottom: 90px;
+        right: 1rem;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .home-button img {
+        width: 28px;
+        height: 28px;
+        margin-bottom: 5px;
+    }
+    
+    .home-button span {
+        font-size: 10px;
+    }
+    
+    /* Welcome Section */
+    .welcome-section {
+        padding-top: 200px;
+    }
+    
+    .welcome-banner {
+        padding: 1rem 0;
+    }
+    
+    .welcome-banner h2 {
+        font-size: 1.7rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .welcome-banner img {
+        height: 45px;
+    }
+    
+    /* Vision & Mission */
+    .overlay-vision-mission {
+        padding: 1.5rem 0 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.7rem;
+    }
+    
+    .home-vision-card, .home-mission-card {
+        padding: 1.5rem;
+        min-width: 250px;
+    }
+    
+    .home-card-header i {
+        font-size: 1.4rem;
+    }
+    
+    .home-card-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    /* Stack cards in one column */
+    .vision-mission-cards {
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 
-/* Content Page Spacing */
-.page-hero + section {
-    margin-bottom: 80px; /* Ensure content has room for footer */
+/* ===== GENERAL FIXES ===== */
+html, body {
+    height: 100%;
+    overflow: auto !important;
 }
 
-/* Make sure this is the absolute last rule in your CSS file */
 html:not(.no-scroll),
 body:not(.index-page) {
     overflow: auto !important;
     height: auto !important;
     position: static !important;
-    padding-bottom: 70px; /* Add padding at bottom of content pages */
+    padding-bottom: 70px;
 }
 
-.quick-button.door-button span {
-    display: block;
-    padding-top: 5px; /* Adjust the value as needed */
+.page-hero + section {
+    margin-bottom: 80px;
 }
-
-/* Weather Section Styles */
-.weather-section {
-    background: rgba(21, 27, 40, 0.8);
-    padding: 2rem;
-    margin: 2rem auto;
-    max-width: 1200px;
-    border: 1px solid rgba(59, 130, 246, 0.3);
-    box-shadow: var(--shadow);
-    position: relative;
-    z-index: 10;
-}
-
-.weather-section h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
-    background: linear-gradient(90deg, #f8fafc, #60a5fa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    position: relative;
-}
-
-.weather-section h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 2px;
-    background: linear-gradient(90deg, rgba(59, 130, 246, 0.3), rgba(96, 165, 250, 0.7), rgba(59, 130, 246, 0.3));
-}
-
-.weather-container {
-    background: rgba(30, 41, 59, 0.7);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    border-radius: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
-}
-
-.weather-container:hover {
-    box-shadow: 0 5px 20px rgba(59, 130, 246, 0.3);
-    border-color: rgba(59, 130, 246, 0.4);
-}
-
-@media screen and (max-width: 768px) {
-    .weather-section {
-        padding: 1.5rem;
-        margin: 1.5rem auto;
-    }
-    
-    .weather-section h2 {
-        font-size: 1.5rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .weather-section {
-        padding: 1rem;
-        margin: 1rem auto;
-    }
-    
-    .weather-section h2 {
-        font-size: 1.3rem;
-    }
-}
-
-/* Mini Weather Dashboard */
-.mini-weather-dash {
-    position: fixed;
-    top: 65px;
-    left: 0;
-    width: 100%;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 999; /* Increased to be above vision section */
-    border-bottom: 1px solid rgba(59, 130, 246, 0.4);
-    padding: 2px 0;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.weather-dash-container {
-    max-width: 450px; /* Increased from 420px */
-    margin: 0 auto;
-    height: 100px; /* Increased from 85px */
-    position: relative;
-    overflow: hidden;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    background: rgba(15, 23, 42, 0.9);
-    border: 1px solid rgba(59, 130, 246, 0.3);
-}
-
-.weather-widget-content {
-    width: 100%;
-    height: 100%;
-    color: white;
-    font-size: 12px;
-    direction: rtl;
-}
-
-.weather-loading, .weather-error {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #a4ceff;
-    font-size: 14px;
-}
-
-.weather-content {
-    height: 100%;
-    padding: 5px;
-}
-
-.weather-title {
-    font-size: 12px; /* Increased from 11px */
-    text-align: center;
-    margin-bottom: 4px; /* Increased from 3px */
-    color: #a4ceff;
-}
-
-.weather-days {
-    display: flex;
-    justify-content: space-around;
-    height: 70px; /* Increased from 55px */
-    padding: 5px 0;
-}
-
-.weather-day {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2px 5px;
-    width: 25%;
-}
-
-.day-name {
-    font-weight: bold;
-    font-size: 13px; /* Increased from 12px */
-    margin-bottom: 3px;
-}
-
-.temps {
-    display: flex;
-    gap: 5px;
-    margin-bottom: 2px; /* Increased from 1px */
-}
-
-.max-temp {
-    color: white;
-    font-weight: bold;
-    font-size: 13px; /* Explicitly set */
-}
-
-.min-temp {
-    color: #a4ceff;
-    font-size: 11px; /* Increased from 9px */
-}
-
-.rain {
-    font-size: 10px; /* Increased from 8px */
-    color: #0099ff;
-    margin-bottom: 2px;
-}
-
-.sunset {
-    font-size: 10px; /* Increased from 8px */
-    color: #ffce4a;
-}
-
-/* Adjust positioning for elements beneath the weather widget */
-.nav-circle {
-    top: 60px; /* Default position when weather widget is hidden */
-}
-
-.mini-weather-dash.active + .nav-circle {
-    top: 170px; /* Adjusted position when weather widget is visible */
-}
-
-.hero {
-    padding-top: 120px; /* Default padding when weather widget is hidden */
-}
-
-.mini-weather-dash.active + .nav-circle + section.hero {
-    padding-top: 270px; /* Adjusted padding when weather widget is visible */
-}
-
-/* Mobile responsiveness improvements */
-@media screen and (max-width: 768px) {
-    .mini-weather-dash {
-        top: 60px;
-    }
-
-    .weather-dash-container {
-        height: 100px; /* Consistent height */
-        max-width: 420px; /* Slightly wider on mobile */
-    }
-
-    .weather-days {
-        height: 70px; /* More space for weather info */
-    }
-
-    .nav-circle {
-        top: 60px; /* Default position when weather widget is hidden */
-    }
-    
-    .mini-weather-dash.active + .nav-circle {
-        top: 165px; /* Adjusted when weather widget is visible */
-    }
-
-    .hero {
-        padding-top: 120px; /* Default padding when weather widget is hidden */
-    }
-    
-    .mini-weather-dash.active + .nav-circle + section.hero {
-        padding-top: 265px; /* Adjusted padding when weather widget is visible */
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .weather-dash-container {
-        height: 110px; /* Even taller on small phones */
-        max-width: 340px; /* Wider on small screens */
-    }
-
-    .weather-title {
-        font-size: 12px;
-        margin-bottom: 4px;
-    }
-
-    .weather-days {
-        height: 75px; /* Increased height */
-    }
-
-    .weather-day {
-        padding: 2px 4px; /* Slightly more padding */
-    }
-
-    .day-name, .max-temp {
-        font-size: 12px; /* Increased for better readability */
-    }
-
-    .min-temp, .rain, .sunset {
-        font-size: 10px;
-        white-space: nowrap; /* Prevent wrapping */
-    }
-
-    .nav-circle {
-        top: 60px; /* Default position when weather widget is hidden */
-    }
-    
-    .mini-weather-dash.active + .nav-circle {
-        top: 175px; /* Adjusted when weather widget is visible */
-    }
-
-    .hero {
-        padding-top: 120px; /* Default padding when weather widget is hidden */
-    }
-    
-    .mini-weather-dash.active + .nav-circle + section.hero {
-        padding-top: 275px; /* Adjusted padding when weather widget is visible */
-    }
-}
-
-

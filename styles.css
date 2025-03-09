@@ -220,7 +220,7 @@ header h1 {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -229,9 +229,11 @@ header h1 {
     display: block;
     z-index: 999;
     border-left: 1px solid rgba(59, 130, 246, 0.1);
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
     padding-top: 70px;
+    padding-bottom: 100px; /* Added padding to ensure content at bottom is visible */
+    -webkit-overflow-scrolling: touch;
 }
 
 .home-nav .menu-container {
@@ -239,12 +241,7 @@ header h1 {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    max-height: 100vh;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 50px 0;
-    -webkit-overflow-scrolling: touch;
+    padding: 20px 0 120px 0; /* Increased bottom padding */
     width: 100%;
 }
 
@@ -1109,10 +1106,22 @@ header h1 {
     }
 
     /* Navigation */
+    .home-nav {
+        height: 100%;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 120px;
+    }
+    
+    .home-nav .menu-container {
+        padding-bottom: 150px;
+    }
+    
     .home-nav a {
         font-size: 1.5rem;
         padding: 0.5rem 1rem;
         width: 80%;
+        margin: 0.5rem 0;
     }
 
     /* Hero */
@@ -1327,6 +1336,15 @@ header h1 {
 }
 
 @media screen and (max-width: 480px) {
+    /* Navigation */
+    .home-nav {
+        padding-bottom: 150px;
+    }
+    
+    .home-nav .menu-container {
+        padding-bottom: 180px;
+    }
+    
     /* Weather */
     .weather-dash-container {
         height: 110px;
@@ -1512,6 +1530,8 @@ header h1 {
 html, body {
     height: 100%;
     overflow: auto !important;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
 }
 
 html:not(.no-scroll),
@@ -1520,6 +1540,7 @@ body:not(.index-page) {
     height: auto !important;
     position: static !important;
     padding-bottom: 70px;
+    -webkit-overflow-scrolling: touch;
 }
 
 .page-hero + section {

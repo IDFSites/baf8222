@@ -24,30 +24,32 @@
 </header>
 
 <nav class="home-nav">
-  <a href="index.html">
-    <i class="fas fa-home"></i> דף הבית
-  </a>
-  <a href="lehima.html">
-    <i class="fas fa-shield-alt"></i> ביה״ס ללחימה
-  </a>
-  <a href="hagnash.html">
-    <i class="fas fa-hard-hat"></i> ביה״ס להגנ״ש
-  </a>
-  <a href="nehiga.html">
-    <i class="fas fa-car"></i> ביה״ס לנהיגה
-  </a>
-  <a href="gashashim.html">
-    <i class="fas fa-search"></i> ביה״ס לגששים
-  </a>
-  <a href="https://safetyprod.azurewebsites.net">
-    <i class="fas fa-exclamation-triangle"></i> בטיחות
-  </a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSczMrVOz_pTev4FcaAcLqKwGiQUHYSj-b916dhsPt8fOx9gyw/viewform">
-    <i class="fas fa-tasks"></i> תיאום אימון עצמאי
-  </a>
-  <a href="hadracha.html" class="active">
-    <i class="fas fa-book"></i> הדרכה
-  </a>
+    <div class="menu-container" style="overflow-y: auto; max-height: 100vh; width: 100%; padding: 20px 0;">
+        <a href="index.html">
+            <i class="fas fa-home"></i> דף הבית
+        </a>
+        <a href="lehima.html">
+            <i class="fas fa-shield-alt"></i> ביה״ס ללחימה
+        </a>
+        <a href="hagnash.html">
+            <i class="fas fa-hard-hat"></i> ביה״ס להגנ״ש
+        </a>
+        <a href="nehiga.html">
+            <i class="fas fa-car"></i> ביה״ס לנהיגה
+        </a>
+        <a href="gashashim.html">
+            <i class="fas fa-search"></i> ביה״ס לגששים
+        </a>
+        <a href="https://safetyprod.azurewebsites.net">
+            <i class="fas fa-exclamation-triangle"></i> בטיחות
+        </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSczMrVOz_pTev4FcaAcLqKwGiQUHYSj-b916dhsPt8fOx9gyw/viewform">
+            <i class="fas fa-tasks"></i> תיאום אימון עצמאי
+        </a>
+        <a href="hadracha.html" class="active">
+            <i class="fas fa-book"></i> הדרכה
+        </a>
+    </div>
 </nav>
 
 <div class="training-container">
@@ -119,6 +121,20 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Force body to be scrollable
+    document.documentElement.style.overflow = 'auto';
+    document.body.style.overflow = 'auto';
+    
+    // Make nav menu scrollable 
+    const mainNavMenu = document.querySelector('.nav-menu');
+    if (mainNavMenu) {
+        mainNavMenu.style.overflow = 'auto';
+        mainNavMenu.style.maxHeight = 'calc(100vh - 70px)';
+        mainNavMenu.style.overflowY = 'auto';
+        mainNavMenu.style.overflowX = 'hidden';
+        mainNavMenu.style.webkitOverflowScrolling = 'touch';
+    }
+    
     // Menu button toggle
     const menuBtn = document.querySelector('.menu-btn');
     const navMenu = document.querySelector('.home-nav');
@@ -152,29 +168,37 @@
       });
     }
 
-    // Simple dropdown toggle - just like the menu button
+    // Office dropdown toggle
     const officeDropdownCard = document.getElementById('officeDropdownCard');
     const officeDropdownContent = document.getElementById('officeDropdownContent');
 
     if (officeDropdownCard && officeDropdownContent) {
-      // Disable hover-based dropdown on mobile
-      if (isMobile) {
-        // Add click toggle behavior
-        officeDropdownCard.addEventListener('click', function(e) {
-          // Only toggle if not clicking a dropdown item
-          if (!e.target.closest('.office-dropdown-item')) {
-            e.preventDefault();
-            officeDropdownContent.classList.toggle('active');
+      // Make sure the office dropdown has a lower z-index than main menu
+      officeDropdownContent.style.zIndex = "950";
+      
+      // Add click toggle behavior for all devices
+      officeDropdownCard.addEventListener('click', function(e) {
+        // Only toggle if not clicking a dropdown item
+        if (!e.target.closest('.office-dropdown-item')) {
+          e.preventDefault();
+          officeDropdownContent.classList.toggle('active');
+          
+          // Make sure the dropdown shows
+          if (officeDropdownContent.classList.contains('active')) {
+            officeDropdownContent.style.display = 'block';
+          } else {
+            officeDropdownContent.style.display = 'none';
           }
-        });
+        }
+      });
 
-        // Close dropdown when clicking anywhere else
-        document.addEventListener('click', function(e) {
-          if (!e.target.closest('#officeDropdownCard') && officeDropdownContent.classList.contains('active')) {
-            officeDropdownContent.classList.remove('active');
-          }
-        });
-      }
+      // Close dropdown when clicking anywhere else
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('#officeDropdownCard') && officeDropdownContent.classList.contains('active')) {
+          officeDropdownContent.classList.remove('active');
+          officeDropdownContent.style.display = 'none';
+        }
+      });
     }
   });
 </script>

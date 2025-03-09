@@ -174,7 +174,7 @@
 /* ENABLE SCROLLING */
 html, body {
     height: 100%;
-    overflow: auto; /* Enable scrolling */
+    overflow: auto !important; /* Force enable scrolling */
 }
 
 /* Responsive adjustments */
@@ -335,7 +335,7 @@ body.gashashim-page {
     border: 1px solid rgba(59, 130, 246, 0.6);
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    z-index: 900; /* Lower z-index to prevent overlap with main menu */
+    z-index: 950; /* Higher than footer (900) but lower than main nav (998) */
     border-radius: 5px;
     top: 100%;
     right: 0;
@@ -404,7 +404,7 @@ body.gashashim-page {
 .training-card.has-dropdown {
     position: relative;
     cursor: pointer;
-    z-index: 901; /* Reduced from 1040 to be lower than the main menu z-index (999) */
+    z-index: 960; /* Higher than dropdown content but lower than main menu */
 }
 
 /* Disable opacity changes on touch devices */
@@ -489,7 +489,7 @@ body.gashashim-page {
     border: 1px solid rgba(59, 130, 246, 0.6);
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    z-index: 900; /* Reduced from 1000 to be lower than the main menu z-index (999) */
+    z-index: 950; /* Higher than footer (900) but lower than main menu z-index (998) */
     border-radius: 5px;
     top: 100%;
     right: 0;

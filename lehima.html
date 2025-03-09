@@ -24,30 +24,32 @@
 </header>
 
 <nav class="home-nav">
-    <a href="index.html">
-        <i class="fas fa-home"></i> דף הבית
-    </a>
-    <a href="lehima.html" class="active">
-        <i class="fas fa-shield-alt"></i> ביה״ס ללחימה
-    </a>
-    <a href="hagnash.html">
-        <i class="fas fa-hard-hat"></i> ביה״ס להגנ״ש
-    </a>
-    <a href="nehiga.html">
-        <i class="fas fa-car"></i> ביה״ס לנהיגה
-    </a>
-    <a href="gashashim.html">
-        <i class="fas fa-search"></i> ביה״ס לגששים
-    </a>
-    <a href="https://safetyprod.azurewebsites.net">
-        <i class="fas fa-exclamation-triangle"></i> בטיחות
-    </a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSczMrVOz_pTev4FcaAcLqKwGiQUHYSj-b916dhsPt8fOx9gyw/viewform">
-        <i class="fas fa-tasks"></i> תיאום אימון עצמאי
-    </a>
-    <a href="hadracha.html">
-        <i class="fas fa-book"></i> הדרכה
-    </a>
+    <div class="menu-container" style="overflow-y: auto; max-height: 100vh; width: 100%; padding: 20px 0;">
+        <a href="index.html">
+            <i class="fas fa-home"></i> דף הבית
+        </a>
+        <a href="lehima.html" class="active">
+            <i class="fas fa-shield-alt"></i> ביה״ס ללחימה
+        </a>
+        <a href="hagnash.html">
+            <i class="fas fa-hard-hat"></i> ביה״ס להגנ״ש
+        </a>
+        <a href="nehiga.html">
+            <i class="fas fa-car"></i> ביה״ס לנהיגה
+        </a>
+        <a href="gashashim.html">
+            <i class="fas fa-search"></i> ביה״ס לגששים
+        </a>
+        <a href="https://safetyprod.azurewebsites.net">
+            <i class="fas fa-exclamation-triangle"></i> בטיחות
+        </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSczMrVOz_pTev4FcaAcLqKwGiQUHYSj-b916dhsPt8fOx9gyw/viewform">
+            <i class="fas fa-tasks"></i> תיאום אימון עצמאי
+        </a>
+        <a href="hadracha.html">
+            <i class="fas fa-book"></i> הדרכה
+        </a>
+    </div>
 </nav>
 
 <div class="page-container">
@@ -110,6 +112,20 @@
 </div>
 
 <script>
+    // Force body to be scrollable
+    document.documentElement.style.overflow = 'auto';
+    document.body.style.overflow = 'auto';
+    
+    // Make nav menu scrollable 
+    const mainNavMenu = document.querySelector('.nav-menu');
+    if (mainNavMenu) {
+        mainNavMenu.style.overflow = 'auto';
+        mainNavMenu.style.maxHeight = 'calc(100vh - 70px)';
+        mainNavMenu.style.overflowY = 'auto';
+        mainNavMenu.style.overflowX = 'hidden';
+        mainNavMenu.style.webkitOverflowScrolling = 'touch';
+    }
+    
     const menuBtn = document.querySelector('.menu-btn');
     const navMenu = document.querySelector('.home-nav');
 
@@ -118,23 +134,27 @@
         navMenu.classList.toggle('active');
     });
 
-    // Add hover effect to nav items
-    const navLinks = document.querySelectorAll('.home-nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('mouseenter', () => {
-            navLinks.forEach(otherLink => {
-                if (otherLink !== link) {
-                    otherLink.style.opacity = '0.7';
-                }
+    // Add hover effect to nav items - only on desktop
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (!isMobile) {
+        const navLinks = document.querySelectorAll('.home-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                navLinks.forEach(otherLink => {
+                    if (otherLink !== link) {
+                        otherLink.style.opacity = '0.7';
+                    }
+                });
             });
-        });
 
-        link.addEventListener('mouseleave', () => {
-            navLinks.forEach(otherLink => {
-                otherLink.style.opacity = '1';
+            link.addEventListener('mouseleave', () => {
+                navLinks.forEach(otherLink => {
+                    otherLink.style.opacity = '1';
+                });
             });
         });
-    });
+    }
 </script>
 </body>
 </html>

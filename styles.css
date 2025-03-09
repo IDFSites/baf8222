@@ -143,6 +143,10 @@ header h1 {
     gap: 0.8rem;
     box-shadow: var(--shadow);
     border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 .nav-menu a {
@@ -200,6 +204,19 @@ header h1 {
     align-items: center;
     z-index: 999;
     border-left: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.home-nav .menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px 0;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
 }
 
 .home-nav.active {
@@ -1154,6 +1171,10 @@ html, body:not(.index-page) {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none; /* Firefox */
         -ms-overflow-style: none; /* IE and Edge */
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+        z-index: 980; /* Lower than main menu and dropdowns */
     }
 
     .nav-buttons::-webkit-scrollbar {

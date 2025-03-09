@@ -89,6 +89,32 @@ header h1 {
     -webkit-text-fill-color: transparent;
 }
 
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.weather-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    transition: var(--transition);
+}
+
+.weather-toggle-btn:hover {
+    color: var(--accent-glow);
+    transform: scale(1.1);
+}
+
 .menu-btn {
     display: flex;
     flex-direction: column;
@@ -339,6 +365,12 @@ header h1 {
     overflow: hidden;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.mini-weather-dash.active {
+    transform: translateY(0);
 }
 
 .weather-dash-container {
@@ -432,7 +464,7 @@ header h1 {
 /* Nav Circle and Quick Buttons */
 .nav-circle {
     position: fixed;
-    top: 150px; /* Adjusted for taller weather widget */
+    top: 60px; /* Adjusted since weather widget is now hidden by default */
     left: 0;
     width: 100%;
     display: flex;
@@ -444,6 +476,12 @@ header h1 {
     -webkit-backdrop-filter: blur(10px);
     z-index: 998; /* Just below weather dash but above other content */
     border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    transition: top 0.3s ease-in-out;
+}
+
+/* Move nav-circle down when weather widget is active */
+.mini-weather-dash.active + .nav-circle {
+    top: 150px;
 }
 
 .nav-buttons {
@@ -548,6 +586,67 @@ header h1 {
     transform: translateY(20px);
     animation: fadeInUp 1s forwards 0.3s;
     filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.7));
+}
+
+/* Hero Welcome Banner */
+.hero-welcome-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    -webkit-backdrop-filter: blur(10px);
+    padding: 2rem;
+    /* Make it non-square with more organic shape */
+
+
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    width: 85%;
+    max-width: 500px;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+
+
+.hero-welcome-banner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, #f8fafc, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(15, 23, 42, 0.5);
+    letter-spacing: 1px;
+}
+
+.hero-welcome-banner img {
+    height: 80px;
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.7));
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.7));
+    }
+    50% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.9));
+    }
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.7));
+    }
 }
 
 @keyframes fadeInUp {
@@ -712,6 +811,18 @@ header h1 {
         font-size: 1.2rem;
     }
 
+    .header-icons {
+        gap: 10px;
+    }
+
+    .weather-toggle-btn {
+        min-width: 44px;
+        min-height: 44px;
+        padding: 10px;
+        margin: -10px;
+        font-size: 1.2rem;
+    }
+
     .menu-btn {
         min-width: 44px;
         min-height: 44px;
@@ -735,6 +846,32 @@ header h1 {
     .hero-content img {
         height: 70px;
     }
+    
+    .hero-welcome-banner {
+        width: 90%;
+        padding: 1.5rem;
+        /* Adjust clip-path for smaller screens */
+        clip-path: polygon(
+            0 8px, 
+            8px 0, 
+            calc(100% - 8px) 0, 
+            100% 8px, 
+            100% calc(100% - 8px), 
+            calc(100% - 8px) 100%, 
+            8px 100%, 
+            0 calc(100% - 8px)
+        );
+    }
+    
+    .hero-welcome-banner h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-welcome-banner img {
+        height: 60px;
+    }
+}
     
     .mini-weather-dash {
         top: 60px;
@@ -820,7 +957,7 @@ header h1 {
     .hero-icon {
         font-size: 2.5rem;
     }
-}
+
 
 @media screen and (max-width: 480px) {
     .weather-dash-container {
@@ -912,6 +1049,23 @@ header h1 {
     width: auto;
     height: auto;
     transform: scale(1.25); /* Scale up by 25% */
+}
+
+/* Contact button icon styling */
+.quick-button.contact-button .icon-container i {
+    font-size: 1.6rem;
+}
+
+@media screen and (max-width: 768px) {
+    .quick-button.contact-button .icon-container i {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .quick-button.contact-button .icon-container i {
+        font-size: 1.2rem;
+    }
 }
 
 /* Stand-alone home button styling that will work regardless of HTML structure */
@@ -1094,9 +1248,9 @@ header h1 {
 }
 
 /* Adjust main content to make room for footer and prevent scrolling - only on index page */
-html, body.index-page {
+html, body {
     height: 100%;
-    overflow: hidden;
+    overflow: auto !important;
 }
 
 /* Enable scrolling for all other pages */
@@ -1547,6 +1701,31 @@ html, body.index-page {
         white-space: normal;
         padding: 0 2px;
     }
+    
+    .hero-welcome-banner {
+        width: 95%;
+        padding: 1.2rem;
+        /* Smaller clip-path for mobile */
+        clip-path: polygon(
+            0 6px, 
+            6px 0, 
+            calc(100% - 6px) 0, 
+            100% 6px, 
+            100% calc(100% - 6px), 
+            calc(100% - 6px) 100%, 
+            6px 100%, 
+            0 calc(100% - 6px)
+        );
+    }
+    
+    .hero-welcome-banner h2 {
+        font-size: 1.7rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero-welcome-banner img {
+        height: 50px;
+    }
 }
 
 /* Content Page Spacing */
@@ -1747,11 +1926,19 @@ body:not(.index-page) {
 
 /* Adjust positioning for elements beneath the weather widget */
 .nav-circle {
-    top: 170px; /* Adjusted for taller weather widget */
+    top: 60px; /* Default position when weather widget is hidden */
+}
+
+.mini-weather-dash.active + .nav-circle {
+    top: 170px; /* Adjusted position when weather widget is visible */
 }
 
 .hero {
-    padding-top: 270px; /* Adjusted for weather widget with sunset times */
+    padding-top: 120px; /* Default padding when weather widget is hidden */
+}
+
+.mini-weather-dash.active + .nav-circle + section.hero {
+    padding-top: 270px; /* Adjusted padding when weather widget is visible */
 }
 
 /* Mobile responsiveness improvements */
@@ -1770,11 +1957,19 @@ body:not(.index-page) {
     }
 
     .nav-circle {
-        top: 165px; /* Adjusted for taller weather widget */
+        top: 60px; /* Default position when weather widget is hidden */
+    }
+    
+    .mini-weather-dash.active + .nav-circle {
+        top: 165px; /* Adjusted when weather widget is visible */
     }
 
     .hero {
-        padding-top: 265px; /* Adjusted for taller weather widget + nav */
+        padding-top: 120px; /* Default padding when weather widget is hidden */
+    }
+    
+    .mini-weather-dash.active + .nav-circle + section.hero {
+        padding-top: 265px; /* Adjusted padding when weather widget is visible */
     }
 }
 
@@ -1807,11 +2002,19 @@ body:not(.index-page) {
     }
 
     .nav-circle {
-        top: 175px; /* Adjusted for taller weather widget */
+        top: 60px; /* Default position when weather widget is hidden */
+    }
+    
+    .mini-weather-dash.active + .nav-circle {
+        top: 175px; /* Adjusted when weather widget is visible */
     }
 
     .hero {
-        padding-top: 275px; /* Adjusted for taller weather widget */
+        padding-top: 120px; /* Default padding when weather widget is hidden */
+    }
+    
+    .mini-weather-dash.active + .nav-circle + section.hero {
+        padding-top: 275px; /* Adjusted padding when weather widget is visible */
     }
 }
 

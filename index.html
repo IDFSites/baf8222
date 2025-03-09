@@ -9,16 +9,20 @@
 </head>
 <body class="index-page">
 <header>
-
     <div class="container">
         <div class="header-content">
             <img src="images/image.png" alt="Logo">
-            <h1>ברוכים הבאים לבא״פ לכיש</h1>
-            <button class="menu-btn" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <h1>אתר בא״פ לכיש</h1>
+            <div class="header-icons">
+                <button class="menu-btn" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <button class="weather-toggle-btn" aria-label="Toggle Weather">
+                    <i class="fas fa-cloud-sun"></i>
+                </button>
+            </div>
         </div>
     </div>
 </header>
@@ -128,9 +132,9 @@
             </div>
             <span>ניווט</span>
         </a>
-        <a href="contact.html" class="quick-button">
+        <a href="contact.html" class="quick-button contact-button">
             <div class="icon-container">
-                <i class="fas fa-address-book" style="color: white; font-size: 1.8rem;"></i>
+                <i class="fas fa-address-book" style="color: white;"></i>
             </div>
             <span>יצירת קשר</span>
         </a>
@@ -141,6 +145,9 @@
     <div class="menu-container">
         <a href="index.html" class="active">
             <i class="fas fa-home"></i> דף הבית
+        </a>
+        <a href="about.html">
+            <i class="fas fa-bullseye"></i> חזון וייעוד
         </a>
         <a href="lehima.html">
             <i class="fas fa-shield-alt"></i> ביה״ס ללחימה
@@ -153,9 +160,6 @@
         </a>
         <a href="gashashim.html">
             <i class="fas fa-search"></i> ביה״ס לגששים
-        </a>
-        <a href="about.html">
-            <i class="fas fa-info-circle"></i> חזון וייעוד
         </a>
         <a href="https://safetyprod.azurewebsites.net">
             <i class="fas fa-exclamation-triangle"></i> בטיחות
@@ -172,13 +176,6 @@
     </div>
 </nav>
 
-<!--<div class="welcome-section">-->
-<!--    <div class="welcome-banner">-->
-<!--        <h2>ברוכים הבאים לבא״פ לכיש</h2>-->
-<!--        <img src="images/image.png" alt="Logo">-->
-<!--    </div>-->
-<!--</div>-->
-
 <section class="hero">
     <div class="slideshow-container">
         <div class="slides">
@@ -192,30 +189,9 @@
         </div>
     </div>
     
-    <div class="overlay-vision-mission">
-        <div class="container">
-            <div class="vision-mission-home-content">
-                <h2 class="section-title">החזון והייעוד שלנו</h2>
-                <div class="vision-mission-cards">
-                    <div class="home-vision-card">
-                        <div class="home-card-header">
-                            <i class="fas fa-eye"></i>
-                            <h3>חזון</h3>
-                        </div>
-                        <p>להיות מרכז מצוינות מוביל להכשרה ופיתוח מקצועי של לוחמים ומפקדים בצה"ל, המשלב ידע מבצעי עדכני, טכנולוגיה מתקדמת ושיטות אימון חדשניות.</p>
-                        <a href="about.html#vision" class="read-more">קרא עוד <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                    <div class="home-mission-card">
-                        <div class="home-card-header">
-                            <i class="fas fa-bullseye"></i>
-                            <h3>ייעוד</h3>
-                        </div>
-                        <p>לפתח ולהכשיר לוחמים ומפקדים מקצועיים, ערכיים ובעלי מוטיבציה גבוהה, המוכנים לאתגרי הביטחון העכשוויים והעתידיים.</p>
-                        <a href="about.html#mission" class="read-more">קרא עוד <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="hero-welcome-banner">
+        <h2>ברוכים הבאים לבא״פ לכיש</h2>
+        <img src="images/image.png" alt="Logo">
     </div>
 </section>
 
@@ -259,12 +235,21 @@
         menuContainer.style.webkitOverflowScrolling = 'touch';
     }
     
+    // Toggle menu
     const menuBtn = document.querySelector('.menu-btn');
     const navMenu = document.querySelector('.home-nav');
 
     menuBtn.addEventListener('click', () => {
         menuBtn.classList.toggle('active');
         navMenu.classList.toggle('active');
+    });
+    
+    // Toggle weather widget
+    const weatherToggleBtn = document.querySelector('.weather-toggle-btn');
+    const weatherDash = document.querySelector('.mini-weather-dash');
+    
+    weatherToggleBtn.addEventListener('click', () => {
+        weatherDash.classList.toggle('active');
     });
 
     let slideIndex = 0;

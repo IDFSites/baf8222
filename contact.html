@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>צור קשר | בא״פ לכיש</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Contact page specific styles */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 1.5rem;
+            margin: 2rem auto;
+        }
+        
+        .contact-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            padding: 1.5rem;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-card:hover {
+            background: rgba(30, 58, 138, 0.4);
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .contact-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            padding-bottom: 0.8rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(59, 130, 246, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 1rem;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        .contact-card:hover .contact-icon {
+            background: rgba(59, 130, 246, 0.4);
+            color: var(--text-light);
+        }
+        
+        .contact-title h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, #f8fafc, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .contact-title p {
+            margin: 0.3rem 0 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .contact-details {
+            flex: 1;
+        }
+        
+        .contact-info {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-info i {
+            margin-left: 0.8rem;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-text strong {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .contact-text span {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        .contact-text a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-text a:hover {
+            color: var(--accent-glow);
+            text-decoration: underline;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                margin-top: 1.5rem;
+            }
+            
+            .contact-card {
+                padding: 1.2rem;
+            }
+            
+            .contact-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .contact-title h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="header-content">
+            <img src="images/image.png" alt="Logo">
+            <h1>בא״פ לכיש</h1>
+            <button class="menu-btn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<nav class="nav-menu">
+    <a href="index.html">
+        <i class="fas fa-home"></i> דף הבית
+    </a>
+    <a href="lehima.html">
+        <i class="fas fa-shield-alt"></i> ביה״ס ללחימה
+    </a>
+    <a href="hagnash.html">
+        <i class="fas fa-hard-hat"></i> ביה״ס להגנ״ש
+    </a>
+    <a href="nehiga.html">
+        <i class="fas fa-car"></i> ביה״ס לנהיגה
+    </a>
+    <a href="gashashim.html">
+        <i class="fas fa-search"></i> ביה״ס לגששים
+    </a>
+    <a href="https://safetyprod.azurewebsites.net">
+        <i class="fas fa-exclamation-triangle"></i> בטיחות
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSczMrVOz_pTev4FcaAcLqKwGiQUHYSj-b916dhsPt8fOx9gyw/viewform">
+        <i class="fas fa-tasks"></i> תיאום אימון עצמאי
+    </a>
+    <a href="hadracha.html">
+        <i class="fas fa-book"></i> הדרכה
+    </a>
+    <a href="contact.html" class="active">
+        <i class="fas fa-address-book"></i> צור קשר
+    </a>
+</nav>
+
+<section class="page-hero">
+    <div class="page-hero-content">
+        <div class="hero-icon">
+            <i class="fas fa-address-book"></i>
+        </div>
+        <h2>צור קשר</h2>
+        <p>אנשי קשר מרכזיים בבא״פ לכיש</p>
+    </div>
+</section>
+
+<div class="contact-grid">
+    <!-- Contact Card 1 -->
+    <div class="contact-card">
+        <div class="contact-header">
+            <div class="contact-icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="contact-title">
+                <h3>איש קשר 1</h3>
+                <p>תפקיד איש הקשר</p>
+            </div>
+        </div>
+        <div class="contact-details">
+            <div class="contact-info">
+                <i class="fas fa-phone"></i>
+                <div class="contact-text">
+                    <strong>טלפון</strong>
+                    <span>XXX-XXXXXXX</span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <div class="contact-text">
+                    <strong>דוא״ל</strong>
+                    <span><a href="mailto:example@example.com">example@example.com</a></span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-building"></i>
+                <div class="contact-text">
+                    <strong>מיקום</strong>
+                    <span>בניין X, קומה Y, חדר Z</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact Card 2 -->
+    <div class="contact-card">
+        <div class="contact-header">
+            <div class="contact-icon">
+                <i class="fas fa-user-shield"></i>
+            </div>
+            <div class="contact-title">
+                <h3>איש קשר 2</h3>
+                <p>תפקיד איש הקשר</p>
+            </div>
+        </div>
+        <div class="contact-details">
+            <div class="contact-info">
+                <i class="fas fa-phone"></i>
+                <div class="contact-text">
+                    <strong>טלפון</strong>
+                    <span>XXX-XXXXXXX</span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <div class="contact-text">
+                    <strong>דוא״ל</strong>
+                    <span><a href="mailto:example@example.com">example@example.com</a></span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-building"></i>
+                <div class="contact-text">
+                    <strong>מיקום</strong>
+                    <span>בניין X, קומה Y, חדר Z</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact Card 3 -->
+    <div class="contact-card">
+        <div class="contact-header">
+            <div class="contact-icon">
+                <i class="fas fa-user-cog"></i>
+            </div>
+            <div class="contact-title">
+                <h3>איש קשר 3</h3>
+                <p>תפקיד איש הקשר</p>
+            </div>
+        </div>
+        <div class="contact-details">
+            <div class="contact-info">
+                <i class="fas fa-phone"></i>
+                <div class="contact-text">
+                    <strong>טלפון</strong>
+                    <span>XXX-XXXXXXX</span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <div class="contact-text">
+                    <strong>דוא״ל</strong>
+                    <span><a href="mailto:example@example.com">example@example.com</a></span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-building"></i>
+                <div class="contact-text">
+                    <strong>מיקום</strong>
+                    <span>בניין X, קומה Y, חדר Z</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact Card 4 -->
+    <div class="contact-card">
+        <div class="contact-header">
+            <div class="contact-icon">
+                <i class="fas fa-user-graduate"></i>
+            </div>
+            <div class="contact-title">
+                <h3>איש קשר 4</h3>
+                <p>תפקיד איש הקשר</p>
+            </div>
+        </div>
+        <div class="contact-details">
+            <div class="contact-info">
+                <i class="fas fa-phone"></i>
+                <div class="contact-text">
+                    <strong>טלפון</strong>
+                    <span>XXX-XXXXXXX</span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <div class="contact-text">
+                    <strong>דוא״ל</strong>
+                    <span><a href="mailto:example@example.com">example@example.com</a></span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-building"></i>
+                <div class="contact-text">
+                    <strong>מיקום</strong>
+                    <span>בניין X, קומה Y, חדר Z</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact Card 5 -->
+    <div class="contact-card">
+        <div class="contact-header">
+            <div class="contact-icon">
+                <i class="fas fa-user-md"></i>
+            </div>
+            <div class="contact-title">
+                <h3>איש קשר 5</h3>
+                <p>תפקיד איש הקשר</p>
+            </div>
+        </div>
+        <div class="contact-details">
+            <div class="contact-info">
+                <i class="fas fa-phone"></i>
+                <div class="contact-text">
+                    <strong>טלפון</strong>
+                    <span>XXX-XXXXXXX</span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <div class="contact-text">
+                    <strong>דוא״ל</strong>
+                    <span><a href="mailto:example@example.com">example@example.com</a></span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-building"></i>
+                <div class="contact-text">
+                    <strong>מיקום</strong>
+                    <span>בניין X, קומה Y, חדר Z</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact Card 6 -->
+    <div class="contact-card">
+        <div class="contact-header">
+            <div class="contact-icon">
+                <i class="fas fa-headset"></i>
+            </div>
+            <div class="contact-title">
+                <h3>איש קשר 6</h3>
+                <p>תפקיד איש הקשר</p>
+            </div>
+        </div>
+        <div class="contact-details">
+            <div class="contact-info">
+                <i class="fas fa-phone"></i>
+                <div class="contact-text">
+                    <strong>טלפון</strong>
+                    <span>XXX-XXXXXXX</span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <div class="contact-text">
+                    <strong>דוא״ל</strong>
+                    <span><a href="mailto:example@example.com">example@example.com</a></span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-building"></i>
+                <div class="contact-text">
+                    <strong>מיקום</strong>
+                    <span>בניין X, קומה Y, חדר Z</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact Card 7 -->
+    <div class="contact-card">
+        <div class="contact-header">
+            <div class="contact-icon">
+                <i class="fas fa-user-check"></i>
+            </div>
+            <div class="contact-title">
+                <h3>איש קשר 7</h3>
+                <p>תפקיד איש הקשר</p>
+            </div>
+        </div>
+        <div class="contact-details">
+            <div class="contact-info">
+                <i class="fas fa-phone"></i>
+                <div class="contact-text">
+                    <strong>טלפון</strong>
+                    <span>XXX-XXXXXXX</span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <div class="contact-text">
+                    <strong>דוא״ל</strong>
+                    <span><a href="mailto:example@example.com">example@example.com</a></span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-building"></i>
+                <div class="contact-text">
+                    <strong>מיקום</strong>
+                    <span>בניין X, קומה Y, חדר Z</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact Card 8 -->
+    <div class="contact-card">
+        <div class="contact-header">
+            <div class="contact-icon">
+                <i class="fas fa-user-clock"></i>
+            </div>
+            <div class="contact-title">
+                <h3>איש קשר 8</h3>
+                <p>תפקיד איש הקשר</p>
+            </div>
+        </div>
+        <div class="contact-details">
+            <div class="contact-info">
+                <i class="fas fa-phone"></i>
+                <div class="contact-text">
+                    <strong>טלפון</strong>
+                    <span>XXX-XXXXXXX</span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <div class="contact-text">
+                    <strong>דוא״ל</strong>
+                    <span><a href="mailto:example@example.com">example@example.com</a></span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-building"></i>
+                <div class="contact-text">
+                    <strong>מיקום</strong>
+                    <span>בניין X, קומה Y, חדר Z</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<a href="index.html" class="home-button">-->
+<!--    <img src="images/home.png" alt="Home">-->
+<!--    <span>דף הבית</span>-->
+<!--</a>-->
+
+<div class="footer-container">
+    <div class="footer-content">
+        <div class="footer-text">© 2024 בא״פ לכיש - כל הזכויות שמורות</div>
+    </div>
+</div>
+
+<script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+
+    // Hide menu by default (add CSS to start with hidden menu)
+    navMenu.style.display = 'none';
+
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('active');
+        if (navMenu.style.display === 'none') {
+            navMenu.style.display = 'flex';
+        } else {
+            navMenu.style.display = 'none';
+        }
+    });
+    
+    // Add hover effect to nav items
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            navLinks.forEach(otherLink => {
+                if (otherLink !== link) {
+                    otherLink.style.opacity = '0.5';
+                }
+            });
+        });
+
+        link.addEventListener('mouseleave', () => {
+            navLinks.forEach(otherLink => {
+                otherLink.style.opacity = '1';
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

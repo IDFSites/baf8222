@@ -1,0 +1,144 @@
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Anchor positioning */
+.anchor-point {
+    display: block;
+    position: relative;
+    top: -120px; /* Pull the anchor point up to account for fixed header */
+    visibility: hidden;
+    height: 0;
+}
+
+.anchor-wrapper {
+    position: relative;
+}
+
+/* Vision and Mission section styling */
+.vision-mission-section {
+    max-width: 1200px;
+    margin: 100px auto 100px; /* Increased bottom margin for footer */
+    padding: 0 20px;
+}
+
+/* Static footer for content pages */
+.static-footer {
+    position: static !important;
+    margin-top: 30px;
+}
+
+.vision-mission-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Equal gap between all elements in container */
+    margin-bottom: 50px; /* Match the margin-bottom of cards */
+}
+
+.vision-card, .mission-card {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    padding: 40px;  /* Increased padding for all cards */
+    border-radius: 0;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 50px; /* Consistent margin between all cards */
+}
+
+.vision-card:hover, .mission-card:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: var(--glow);
+    transform: translateY(-5px);
+}
+
+.vision-card::before, .mission-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--accent-color), var(--accent-glow));
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-left: 20px;
+    color: var(--accent-color);
+    background: rgba(59, 130, 246, 0.1);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.card-title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, #f8fafc, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card-content {
+    line-height: 2.0; /* Increased line spacing */
+}
+
+/* Match paragraph font size to ordered list */
+.card-content p {
+    font-size: 1.3rem; /* Increased font size */
+    margin-bottom: 1rem; /* Add space between paragraphs */
+}
+
+/* Style for ordered lists */
+.card-content ol {
+    font-size: 1.3rem; /* Increased font size */
+    line-height: 2.0;
+    padding-right: 1.5rem; /* Add padding for list markers */
+}
+
+.card-content li {
+    margin-bottom: 1rem; /* Match paragraph spacing */
+}
+
+/* Removed duplicate properties as they are already defined above */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .vision-mission-section {
+        margin-top: 80px;
+    }
+    
+    .card-icon {
+        font-size: 2rem;
+        width: 60px;
+        height: 60px;
+    }
+    
+    .card-title {
+        font-size: 1.5rem;
+    }
+    
+    /* Mobile font sizes for content */
+    .card-content p {
+        font-size: 1.1rem;
+    }
+    
+    /* Match ordered list to paragraph styling in mobile */
+    .card-content ol {
+        font-size: 1.1rem;
+    }
+}

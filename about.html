@@ -5,127 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>חזון וייעוד | בא״פ לכיש</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Smooth scrolling for anchor links */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Anchor positioning */
-        .anchor-point {
-            display: block;
-            position: relative;
-            top: -120px; /* Pull the anchor point up to account for fixed header */
-            visibility: hidden;
-            height: 0;
-        }
-        
-        .anchor-wrapper {
-            position: relative;
-        }
-        
-        /* Vision and Mission section styling */
-        .vision-mission-section {
-            max-width: 1200px;
-            margin: 100px auto 100px; /* Increased bottom margin for footer */
-            padding: 0 20px;
-        }
-        
-        /* Static footer for content pages */
-        .static-footer {
-            position: static !important;
-            margin-top: 30px;
-        }
-        
-        .vision-mission-container {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-        }
-        
-        .vision-card, .mission-card {
-            background: rgba(30, 41, 59, 0.7);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            padding: 30px;
-            border-radius: 0;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .vision-card:hover, .mission-card:hover {
-            border-color: rgba(59, 130, 246, 0.4);
-            box-shadow: var(--glow);
-            transform: translateY(-5px);
-        }
-        
-        .vision-card::before, .mission-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--accent-color), var(--accent-glow));
-        }
-        
-        .card-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .card-icon {
-            font-size: 2.5rem;
-            margin-left: 20px;
-            color: var(--accent-color);
-            background: rgba(59, 130, 246, 0.1);
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 0;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-        }
-        
-        .card-title {
-            margin: 0;
-            font-size: 2rem;
-            font-weight: 600;
-            background: linear-gradient(90deg, #f8fafc, #60a5fa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .card-content {
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .vision-mission-section {
-                margin-top: 80px;
-            }
-            
-            .card-icon {
-                font-size: 2rem;
-                width: 60px;
-                height: 60px;
-            }
-            
-            .card-title {
-                font-size: 1.5rem;
-            }
-            
-            .card-content {
-                font-size: 1rem;
-            }
-        }
-    </style>
 </head>
 <body>
 <header>
@@ -198,8 +79,9 @@
                     <h2 class="card-title">החזון שלנו</h2>
                 </div>
                 <div class="card-content">
-                    <p>
+                    <p> <strong>
                         בא״פ מרכז יהווה בסיס אימונים פיקודי המאמן כוחות לקראת תעסוקה ולחימה בגזרת יהודה ושומרון וחטמ״ר 417
+                    </strong>
                     </p>
                 </div>
             </div>
@@ -237,6 +119,29 @@
                         <strong>שליחות, מצוינות, אחריות מרחיבה, כבוד הדדי, ושותפות</strong>
                     </p>
                 </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Goals Section -->
+    <div class="anchor-wrapper">
+        <span id="goals" class="anchor-point"></span>
+        <div class="mission-card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-flag"></i>
+                </div>
+                <h2 class="card-title">היעדים שלנו</h2>
+            </div>
+            <div class="card-content">
+                <ol dir="rtl">
+                    <li>בא"פ מרכז יאמן את הכוחות לביצוע המשימות בגזרת פיקוד המרכז <strong>ולאתגרים</strong> <strong>המבצעיים</strong> <strong>הרלוונטיים</strong>, תוך <strong>חיבור מתמיד להערכת המצב המבצעית</strong>.</li>
+                    <li>בא"פ מרכז יהווה <strong>ארגון לומד ומלמד</strong> המשמר ומפתח <strong>ידע מקצועי, איכותי וחדשני</strong>, ינגיש את התכנים המקצועיים באמצעות <strong>פלטפורמות דיגיטליות</strong> לטובת <strong>מיצוי זמן</strong> האימון ויאפשר אימונים מיטביים לכלל בתי הספר- לחימה, הגנת יישוב, גששים, ונהיגה.</li>
+                    <li>בא"פ מרכז יפעל למען <strong>פיתוח ההון האנושי</strong> באמצעות העצמת תחושת השייכות וטיוב הטיפול בכלל האוכלוסיות- חוגרים, אנשי קבע ואנשי המילואים.</li>
+                    <li>בא"פ מרכז יקפיד על <strong>ניהול שגרה צבאית</strong> תקינה תוך <strong>שאיפה למצוינות</strong> והובלת תהליכי <strong>התייעלות ונגישות</strong> בשגרה ובאימונים.</li>
+                    <li>בא"פ מרכז יפתח את <strong>תשתיות המחייה, ההדרכה והאימונים</strong> על מנת לאפשר ביצוע אימון איכותי ורלוונטי בתנאים מכבדים.</li>
+                </ol>
+
             </div>
         </div>
     </div>

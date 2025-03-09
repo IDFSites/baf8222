@@ -273,10 +273,11 @@ header h1 {
 
 /* Hero section with modern elements */
 .hero {
-    height: 100vh;
+    height: 95vh; /* Increased height for better visual effect with overlay */
     position: relative;
     overflow: hidden;
-    padding-top: 270px; /* Adjusted for weather widget with sunset times */
+    padding-top: 0;
+    margin-top: 2rem;
 }
 
 .slideshow-container {
@@ -441,7 +442,7 @@ header h1 {
     background: rgba(15, 23, 42, 0.7);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    z-index: 997;
+    z-index: 998; /* Just below weather dash but above other content */
     border-bottom: 1px solid rgba(59, 130, 246, 0.2);
 }
 
@@ -455,19 +456,20 @@ header h1 {
 }
 
 .quick-button {
-    width: 110px;
-    height: 110px;
+    width: 90px;
+    height: 90px;
     background: rgba(21, 27, 40, 0.95);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 8px;
     text-decoration: none;
     color: white;
     transition: all 0.3s ease;
     border: 1px solid rgba(59, 130, 246, 0.5);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin: 0 5px;
 }
 
 .quick-button:hover {
@@ -482,9 +484,9 @@ header h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
-    margin-bottom: 12px;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
 }
 
 .quick-button img {
@@ -762,37 +764,39 @@ header h1 {
 
     .nav-circle {
         top: 145px; /* Adjusted for taller weather widget */
-        padding: 10px 0;
+        padding: 8px 0;
     }
     
     .hero {
-        padding-top: 250px; /* Adjusted for taller weather widget + nav */
+        padding-top: 0; /* No longer needed with new layout */
+        height: 60vh;
     }
 
     .nav-buttons {
-        gap: 10px;
+        gap: 8px;
     }
 
     .quick-button {
-        width: 95px;
-        height: 95px;
-        padding: 8px;
+        width: 80px;
+        height: 80px;
+        padding: 6px;
+        margin: 0 3px;
     }
 
     .icon-container {
-        width: 42px;
-        height: 42px;
-        margin-bottom: 7px;
+        width: 35px;
+        height: 35px;
+        margin-bottom: 5px;
     }
 
     /* Maintain original door icon size on mobile */
     .quick-button.door-button .icon-container {
-        width: 34px;
-        height: 34px;
+        width: 28px;
+        height: 28px;
     }
 
     .quick-button span {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .nav-grid {
@@ -848,36 +852,40 @@ header h1 {
     
     .nav-circle {
         top: 155px; /* Adjusted for taller weather widget */
+        padding: 6px 0;
     }
     
     .hero {
-        padding-top: 250px; /* Adjusted for taller weather widget */
+        padding-top: 0; /* No longer needed with new layout */
+        height: 50vh;
     }
     
     .nav-buttons {
-        gap: 7px;
+        gap: 5px;
+        padding: 0 10px;
     }
 
     .quick-button {
-        width: 80px;
-        height: 80px;
-        padding: 6px;
+        width: 70px;
+        height: 70px;
+        padding: 5px;
+        margin: 0 2px;
     }
 
     .icon-container {
-        width: 35px;
-        height: 35px;
-        margin-bottom: 5px;
+        width: 30px;
+        height: 30px;
+        margin-bottom: 4px;
     }
 
     /* Maintain original door icon size on small mobile */
     .quick-button.door-button .icon-container {
-        width: 28px;
-        height: 28px;
+        width: 25px;
+        height: 25px;
     }
 
     .quick-button span {
-        font-size: 10px;
+        font-size: 9px;
     }
 }
 
@@ -1219,6 +1227,13 @@ html, body {
     overflow: auto !important; /* Force scrolling to be enabled */
 }
 
+/* Static footer style - used for content pages */
+.static-footer {
+    position: static !important;
+    margin-top: 30px;
+    bottom: auto !important;
+}
+
 /* Allow the index page to scroll to view the weather section */
 html, body.index-page {
     overflow-y: auto !important;
@@ -1235,6 +1250,292 @@ html, body.index-page {
     white-space: normal; /* Allow text to wrap properly */
 }
 
+/* Welcome Section & Banner */
+.welcome-section {
+    padding-top: 270px; /* Space for header, weather, and nav-circle */
+    margin-bottom: 0;
+}
+
+.welcome-banner {
+    background: rgba(15, 23, 42, 0.8);
+    padding: 1.5rem 0;
+    margin: 0;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.5);
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-banner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #f8fafc, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(15, 23, 42, 0.5);
+    letter-spacing: 1px;
+}
+
+.welcome-banner img {
+    height: 70px;
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.7));
+}
+
+/* Overlay Vision & Mission section */
+.overlay-vision-mission {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    padding: 3rem 0 2rem;
+    margin: 0;
+    z-index: 10;
+    background: linear-gradient(to right, rgba(10, 15, 30, 0.85), rgba(15, 23, 42, 0.75), rgba(10, 15, 30, 0.85)); /* Gradient background */
+    backdrop-filter: blur(5px); /* Blur effect for modern browsers */
+    -webkit-backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(59, 130, 246, 0.4);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+.vision-mission-home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.vision-mission-home-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    background: linear-gradient(90deg, #f8fafc, #60a5fa, #f8fafc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.3), rgba(96, 165, 250, 0.7), rgba(59, 130, 246, 0.3));
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+}
+
+.vision-mission-cards {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.home-vision-card, .home-mission-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background: rgba(30, 41, 59, 0.4); /* More transparent background */
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    padding: 2rem;
+    border-radius: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px); /* Additional blur for card content */
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.home-vision-card:hover, .home-mission-card:hover {
+    border-color: rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    transform: translateY(-5px);
+    background: rgba(30, 41, 59, 0.5); /* Slightly less transparent on hover */
+}
+
+.home-vision-card::before, .home-mission-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--accent-color), var(--accent-glow));
+}
+
+.home-card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.home-card-header i {
+    font-size: 2rem;
+    margin-left: 1rem;
+    color: var(--accent-color);
+}
+
+.home-card-header h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, #f8fafc, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.home-vision-card p, .home-mission-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.read-more i {
+    margin-right: 5px;
+    font-size: 0.8rem;
+    transition: var(--transition);
+}
+
+.read-more:hover {
+    color: var(--accent-glow);
+}
+
+.read-more:hover i {
+    transform: translateX(-5px);
+}
+
+/* Responsive adjustments for Welcome, Vision & Mission sections */
+@media (max-width: 768px) {
+    .welcome-section {
+        padding-top: 220px; /* Adjusted for mobile layout */
+    }
+    
+    .welcome-banner {
+        padding: 1.2rem 0;
+    }
+    
+    .welcome-banner h2 {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .welcome-banner img {
+        height: 55px;
+    }
+    
+    .overlay-vision-mission {
+        padding: 2rem 0 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .home-card-header i {
+        font-size: 1.6rem;
+    }
+    
+    .home-card-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .home-vision-card p, .home-mission-card p {
+        font-size: 1rem;
+    }
+    
+    .hero {
+        height: 80vh;
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-section {
+        padding-top: 200px; /* Further adjusted for smaller mobile screens */
+    }
+    
+    .welcome-banner {
+        padding: 1rem 0;
+    }
+    
+    .welcome-banner h2 {
+        font-size: 1.7rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .welcome-banner img {
+        height: 45px;
+    }
+    
+    .overlay-vision-mission {
+        padding: 1.5rem 0 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.7rem;
+    }
+    
+    .home-vision-card, .home-mission-card {
+        padding: 1.5rem;
+        min-width: 250px; /* Smaller minimum width */
+    }
+    
+    .home-card-header i {
+        font-size: 1.4rem;
+    }
+    
+    .home-card-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .hero {
+        height: 70vh;
+        margin-top: 1rem;
+    }
+    
+    /* Stack cards in one column */
+    .vision-mission-cards {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
 /* Specifically fix the door button text alignment */
 .quick-button.door-button span {
     padding: 0 4px;
@@ -1248,12 +1549,18 @@ html, body.index-page {
     }
 }
 
+/* Content Page Spacing */
+.page-hero + section {
+    margin-bottom: 80px; /* Ensure content has room for footer */
+}
+
 /* Make sure this is the absolute last rule in your CSS file */
 html:not(.no-scroll),
 body:not(.index-page) {
     overflow: auto !important;
     height: auto !important;
     position: static !important;
+    padding-bottom: 70px; /* Add padding at bottom of content pages */
 }
 
 .quick-button.door-button span {
@@ -1339,7 +1646,7 @@ body:not(.index-page) {
     background: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    z-index: 998;
+    z-index: 999; /* Increased to be above vision section */
     border-bottom: 1px solid rgba(59, 130, 246, 0.4);
     padding: 2px 0;
     overflow: hidden;

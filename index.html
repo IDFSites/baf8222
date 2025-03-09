@@ -132,7 +132,7 @@
 </div>
 
 <nav class="home-nav">
-    <div class="menu-container" style="overflow-y: auto; max-height: 100vh; width: 100%; padding: 20px 0;">
+    <div class="menu-container">
         <a href="index.html" class="active">
             <i class="fas fa-home"></i> דף הבית
         </a>
@@ -192,6 +192,30 @@
         mainNavMenu.style.overflowY = 'auto';
         mainNavMenu.style.overflowX = 'hidden';
         mainNavMenu.style.webkitOverflowScrolling = 'touch';
+    }
+    
+    // Make home nav menu scrollable
+    const homeNav = document.querySelector('.home-nav');
+    const menuContainer = document.querySelector('.home-nav .menu-container');
+    
+    if (homeNav) {
+        homeNav.style.overflow = 'auto';
+        homeNav.style.display = 'block';
+        homeNav.style.paddingTop = '70px';
+    }
+    
+    if (menuContainer) {
+        menuContainer.style.overflow = 'auto';
+        menuContainer.style.overflowY = 'auto';
+        menuContainer.style.overflowX = 'hidden';
+        menuContainer.style.height = 'calc(100% - 70px)';
+        menuContainer.style.paddingTop = '70px';
+        menuContainer.style.paddingBottom = '70px';
+        menuContainer.style.display = 'flex';
+        menuContainer.style.flexDirection = 'column';
+        menuContainer.style.alignItems = 'center';
+        menuContainer.style.justifyContent = 'flex-start';
+        menuContainer.style.webkitOverflowScrolling = 'touch';
     }
     
     const menuBtn = document.querySelector('.menu-btn');

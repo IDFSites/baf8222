@@ -335,7 +335,7 @@ body.gashashim-page {
     border: 1px solid rgba(59, 130, 246, 0.6);
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    z-index: 1050; /* Higher z-index to prevent overlap issues */
+    z-index: 900; /* Lower z-index to prevent overlap with main menu */
     border-radius: 5px;
     top: 100%;
     right: 0;
@@ -404,7 +404,7 @@ body.gashashim-page {
 .training-card.has-dropdown {
     position: relative;
     cursor: pointer;
-    z-index: 1040; /* Set proper z-index for stacking */
+    z-index: 901; /* Reduced from 1040 to be lower than the main menu z-index (999) */
 }
 
 /* Disable opacity changes on touch devices */
@@ -489,7 +489,7 @@ body.gashashim-page {
     border: 1px solid rgba(59, 130, 246, 0.6);
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    z-index: 1000;
+    z-index: 900; /* Reduced from 1000 to be lower than the main menu z-index (999) */
     border-radius: 5px;
     top: 100%;
     right: 0;

@@ -242,14 +242,7 @@ const weaponNames = {
 
 // Function to create a tooltip element for range conditions
 function createTooltip(condition) {
-  if (!condition) return '';
-
-  return `
-    <div class="tooltip">
-      <i class="fas fa-info-circle"></i>
-      <span class="tooltiptext">${condition}</span>
-    </div>
-  `;
+  return '';
 }
 
 // Populate range checkboxes on page load

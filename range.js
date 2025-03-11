@@ -227,7 +227,7 @@ const rangeData = {
     hasAsphalt: false,
     hasLighting: false,
     allowsMovementShooting: false,
-    allowedWeapons: ["rifle", "mag"],
+    allowedWeapons: ["rifle", "mag","sniper"],
     condition: "אין ירי לטווח 25 מטר, אין לנוע על השלוחות של ״גרזן״ ו״צביקה 1״, לבדיקת מטרות מעבר לקו ה-50 מטר נדרש לחדול את מטווחים 21 ו-22. חל איסור על ירי מברט."
   }
 };
@@ -235,7 +235,6 @@ const rangeData = {
 // Weapon names map
 const weaponNames = {
   rifle: "נק\"ל (5.56)",
-  kala: "קלעים",
   sniper: "צלפים",
   mag: "מא\"ג",
   negev: "נגב"
@@ -299,7 +298,6 @@ function checkRanges() {
     rifle: 0,
     mag: 0,
     negev: 0,
-    kala: 0,
     sniper: 0
   };
 
@@ -360,7 +358,6 @@ function checkRanges() {
       <div><i class="fas fa-crosshairs" style="margin-left: 8px;"></i>${weaponsCount.rifle} מטווחי נק"ל (5.56)</div>
       <div><i class="fas fa-crosshairs" style="margin-left: 8px;"></i>${weaponsCount.mag} מטווחי מא"ג</div>
       <div><i class="fas fa-crosshairs" style="margin-left: 8px;"></i>${weaponsCount.negev} מטווחי נגב</div>
-      <div><i class="fas fa-crosshairs" style="margin-left: 8px;"></i>${weaponsCount.kala} מטווחי קלעים</div>
       <div><i class="fas fa-crosshairs" style="margin-left: 8px;"></i>${weaponsCount.sniper} מטווחי צלפים</div>
     </div>
   `;
@@ -420,11 +417,7 @@ function checkWeapons() {
       case 'negev':
         weaponIcon = 'fas fa-gun';
         break;
-      case 'kala':
-        weaponIcon = 'fas fa-bullseye';
-        break;
-      default:
-        weaponIcon = 'fas fa-crosshairs';
+
     }
 
     // Format range count text based on number of ranges

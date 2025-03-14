@@ -18,7 +18,7 @@
             padding: 0 1.5rem;
             margin: 2rem auto;
         }
-        
+
         .contact-card {
             background: rgba(30, 41, 59, 0.7);
             border: 1px solid rgba(59, 130, 246, 0.1);
@@ -28,14 +28,14 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .contact-card:hover {
             background: rgba(30, 58, 138, 0.4);
             transform: translateY(-5px);
             box-shadow: var(--glow);
             border-color: rgba(59, 130, 246, 0.3);
         }
-        
+
         .contact-header {
             display: flex;
             align-items: center;
@@ -43,7 +43,7 @@
             border-bottom: 1px solid rgba(59, 130, 246, 0.2);
             padding-bottom: 0.8rem;
         }
-        
+
         .contact-icon {
             width: 50px;
             height: 50px;
@@ -56,12 +56,12 @@
             color: var(--accent-color);
             transition: var(--transition);
         }
-        
+
         .contact-card:hover .contact-icon {
             background: rgba(59, 130, 246, 0.4);
             color: var(--text-light);
         }
-        
+
         .contact-title h3 {
             margin: 0;
             font-size: 1.2rem;
@@ -70,76 +70,90 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .contact-title p {
             margin: 0.3rem 0 0;
             font-size: 0.9rem;
             opacity: 0.8;
         }
-        
+
         .contact-details {
             flex: 1;
         }
-        
+
         .contact-info {
             margin-bottom: 0.8rem;
             display: flex;
             align-items: flex-start;
         }
-        
+
         .contact-info:last-child {
             margin-bottom: 0;
         }
-        
+
         .contact-info i {
             margin-left: 0.8rem;
             color: var(--accent-color);
             font-size: 0.9rem;
             margin-top: 0.2rem;
         }
-        
+
         .contact-text {
             flex: 1;
         }
-        
+
         .contact-text strong {
             display: block;
             font-size: 0.9rem;
             margin-bottom: 0.2rem;
         }
-        
+
         .contact-text span {
             font-size: 0.85rem;
             opacity: 0.9;
         }
-        
+
         .contact-text a {
             color: var(--accent-color);
             text-decoration: none;
             transition: var(--transition);
         }
-        
+
         .contact-text a:hover {
             color: var(--accent-glow);
             text-decoration: underline;
         }
-        
+
+        .loading-message {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.2rem;
+            color: #f44336;
+        }
+
         @media screen and (max-width: 768px) {
             .contact-grid {
                 grid-template-columns: 1fr;
                 margin-top: 1.5rem;
             }
-            
+
             .contact-card {
                 padding: 1.2rem;
             }
-            
+
             .contact-icon {
                 width: 40px;
                 height: 40px;
                 font-size: 1.2rem;
             }
-            
+
             .contact-title h3 {
                 font-size: 1.1rem;
             }
@@ -201,304 +215,181 @@
     </div>
 </section>
 
-<div class="contact-grid">
-    <!-- לשכה -->
-    <div class="contact-card">
-        <div class="contact-header">
-            <div class="contact-icon">
-                <i class="fas fa-user-tie"></i>
-            </div>
-            <div class="contact-title">
-                <h3>יוני בכר</h3>
-                <p>סגן מפקד הבא״פ</p>
-            </div>
-        </div>
-        <div class="contact-details">
-            <div class="contact-info">
-                <i class="fas fa-phone"></i>
-                <div class="contact-text">
-                    <strong>טלפון</strong>
-                    <span><a href="tel:+972549183544">054-918-3544</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- אג״ם -->
-    <div class="contact-card">
-        <div class="contact-header">
-            <div class="contact-icon">
-                <i class="fas fa-sitemap"></i>
-            </div>
-            <div class="contact-title">
-                <h3>איתי טוניק</h3>
-                <p>קצין אג״ם בא״פ</p>
-            </div>
-        </div>
-        <div class="contact-details">
-            <div class="contact-info">
-                <i class="fas fa-phone"></i>
-                <div class="contact-text">
-                    <strong>טלפון</strong>
-                    <span><a href="tel:+972545221404">054-522-1404</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="contact-card">
-        <div class="contact-header">
-            <div class="contact-icon">
-                <i class="fas fa-user-graduate"></i>
-            </div>
-            <div class="contact-title">
-                <h3>רז טולדנו</h3>
-                <p>קה״דית בא״פ</p>
-            </div>
-        </div>
-        <div class="contact-details">
-            <div class="contact-info">
-                <i class="fas fa-phone"></i>
-                <div class="contact-text">
-                    <strong>טלפון</strong>
-                    <span><a href="tel:+972544654609">054-465-4609</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="contact-card">
-        <div class="contact-header">
-            <div class="contact-icon">
-                <i class="fas fa-map-marked-alt"></i>
-            </div>
-            <div class="contact-title">
-                <h3>הדר גל</h3>
-                <p>קצין שטחי אש בא״פ</p>
-            </div>
-        </div>
-        <div class="contact-details">
-            <div class="contact-info">
-                <i class="fas fa-phone"></i>
-                <div class="contact-text">
-                    <strong>טלפון</strong>
-                    <span><a href="tel:+972542882951">054-288-2951</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ביה״ס לנהיגה -->
-    <div class="contact-card">
-        <div class="contact-header">
-            <div class="contact-icon">
-                <i class="fas fa-car"></i>
-            </div>
-            <div class="contact-title">
-                <h3>שימי זינו</h3>
-                <p>מפקד ביה״ס לנהיגה</p>
-            </div>
-        </div>
-        <div class="contact-details">
-            <div class="contact-info">
-                <i class="fas fa-phone"></i>
-                <div class="contact-text">
-                    <strong>טלפון</strong>
-                    <span><a href="tel:+972529202546">052-920-2546</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="contact-card">
-        <div class="contact-header">
-            <div class="contact-icon">
-                <i class="fas fa-car"></i>
-            </div>
-            <div class="contact-title">
-                <h3>אדם סדגי</h3>
-                <p>סגן מפקד ביה״ס לנהיגה</p>
-            </div>
-        </div>
-        <div class="contact-details">
-            <div class="contact-info">
-                <i class="fas fa-phone"></i>
-                <div class="contact-text">
-                    <strong>טלפון</strong>
-                    <span><a href="tel:+972508653800">050-865-3800</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ביה״ס ללחימה -->
-    <div class="contact-card">
-        <div class="contact-header">
-            <div class="contact-icon">
-                <i class="fas fa-crosshairs"></i>
-            </div>
-            <div class="contact-title">
-                <h3>אלירן אבנעים</h3>
-                <p>מפקד ביה״ס ללחימה</p>
-            </div>
-        </div>
-        <div class="contact-details">
-            <div class="contact-info">
-                <i class="fas fa-phone"></i>
-                <div class="contact-text">
-                    <strong>טלפון</strong>
-                    <span><a href="tel:+972529244574">052-924-4574</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="contact-card">
-        <div class="contact-header">
-            <div class="contact-icon">
-                <i class="fas fa-crosshairs"></i>
-            </div>
-            <div class="contact-title">
-                <h3>שמואל כהן</h3>
-                <p>סגן מפקד ביה״ס ללחימה</p>
-            </div>
-        </div>
-        <div class="contact-details">
-            <div class="contact-info">
-                <i class="fas fa-phone"></i>
-                <div class="contact-text">
-                    <strong>טלפון</strong>
-                    <span><a href="tel:+972504570470">050-457-0470</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ביה״ס לגששים -->
-    <div class="contact-card">
-        <div class="contact-header">
-            <div class="contact-icon">
-                <i class="fas fa-search"></i>
-            </div>
-            <div class="contact-title">
-                <h3>ראמי פלאח</h3>
-                <p>מפקד ביה״ס לגששים</p>
-            </div>
-        </div>
-        <div class="contact-details">
-            <div class="contact-info">
-                <i class="fas fa-phone"></i>
-                <div class="contact-text">
-                    <strong>טלפון</strong>
-                    <span><a href="tel:+972505480229">050-548-0229</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="contact-card">
-        <div class="contact-header">
-            <div class="contact-icon">
-                <i class="fas fa-search"></i>
-            </div>
-            <div class="contact-title">
-                <h3>ראני נעים</h3>
-                <p>סגן מפקד ביה״ס לגששים</p>
-            </div>
-        </div>
-        <div class="contact-details">
-            <div class="contact-info">
-                <i class="fas fa-phone"></i>
-                <div class="contact-text">
-                    <strong>טלפון</strong>
-                    <span><a href="tel:+972527449952">052-744-9952</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ביה״ס להגנ״ש -->
-    <div class="contact-card">
-        <div class="contact-header">
-            <div class="contact-icon">
-                <i class="fas fa-shield"></i>
-            </div>
-            <div class="contact-title">
-                <h3>איתן דנא</h3>
-                <p>מפקד ביה״ס להגנ״ש</p>
-            </div>
-        </div>
-        <div class="contact-details">
-            <div class="contact-info">
-                <i class="fas fa-phone"></i>
-                <div class="contact-text">
-                    <strong>טלפון</strong>
-                    <span><a href="tel:+972529434939">052-943-4939</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="contact-card">
-        <div class="contact-header">
-            <div class="contact-icon">
-                <i class="fas fa-shield"></i>
-            </div>
-            <div class="contact-title">
-                <h3>תאו יבלושניק</h3>
-                <p>סגן מפקד ביה״ס להגנ״ש</p>
-            </div>
-        </div>
-        <div class="contact-details">
-            <div class="contact-info">
-                <i class="fas fa-phone"></i>
-                <div class="contact-text">
-                    <strong>טלפון</strong>
-                    <span><a href="tel:+972546428338">054-642-8338</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- לוגיסטיקה -->
-    <div class="contact-card">
-        <div class="contact-header">
-            <div class="contact-icon">
-                <i class="fas fa-truck"></i>
-            </div>
-            <div class="contact-title">
-                <h3>אמיר שובלי</h3>
-                <p>מנ״ע לוגיסטיקה</p>
-            </div>
-        </div>
-        <div class="contact-details">
-            <div class="contact-info">
-                <i class="fas fa-phone"></i>
-                <div class="contact-text">
-                    <strong>טלפון</strong>
-                    <span><a href="tel:+972529212434">052-921-2434</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--<a href="index.html" class="home-button">-->
-<!--    <img src="images/home.png" alt="Home">-->
-<!--    <span>דף הבית</span>-->
-<!--</a>-->
-
-<div class="footer-container">
-    <div class="footer-content">
-        <div class="footer-text">© 2024 בא״פ לכיש - כל הזכויות שמורות</div>
+<div class="contact-grid" id="contactGrid">
+    <!-- Contact cards will be dynamically generated by JavaScript -->
+    <div class="loading-message">
+        <p>טוען אנשי קשר...</p>
     </div>
 </div>
 
 <script>
+    // Fetch and display contacts from CSV
+    async function fetchContacts() {
+        try {
+            // URL for the published CSV (note: Google Sheets needs to be published to the web as CSV)
+            const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSviLg-2HGy1xh6OUm6DUBL8rdFssGlowoYRIB4KjTpi21dlPCQ8RINGsuTZ1KbXxeiNW5zA64fIICn/pub?output=csv'; // Replace with your actual CSV URL
+
+            const response = await fetch(csvUrl);
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+
+            const csvData = await response.text();
+            const contacts = parseCSV(csvData);
+            displayContacts(contacts);
+        } catch (error) {
+            console.error('Error fetching contacts:', error);
+            document.getElementById('contactGrid').innerHTML = `
+                <div class="error-message">
+                    <p>לא ניתן לטעון את אנשי הקשר כרגע. נסה שוב מאוחר יותר.</p>
+                </div>
+            `;
+        }
+    }
+
+    // Parse CSV data
+    function parseCSV(csvText) {
+        const lines = csvText.split('\n');
+        const headers = lines[0].split(',').map(header => header.trim());
+
+        const contacts = [];
+
+        for (let i = 1; i < lines.length; i++) {
+            if (!lines[i].trim()) continue;
+
+            // Handle commas within quoted fields
+            const values = [];
+            let inQuotes = false;
+            let currentValue = '';
+
+            for (let j = 0; j < lines[i].length; j++) {
+                const char = lines[i][j];
+
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === ',' && !inQuotes) {
+                    values.push(currentValue.trim());
+                    currentValue = '';
+                } else {
+                    currentValue += char;
+                }
+            }
+
+            values.push(currentValue.trim());
+
+            const contact = {};
+            headers.forEach((header, index) => {
+                contact[header] = values[index] || '';
+            });
+
+            contacts.push(contact);
+        }
+
+        return contacts;
+    }
+
+    // Display contacts in the grid
+    function displayContacts(contacts) {
+        const contactGrid = document.getElementById('contactGrid');
+        contactGrid.innerHTML = '';
+
+        contacts.forEach(contact => {
+            if (!contact['name'] || !contact['job']) return;
+
+            // Determine the appropriate icon based on the role or department
+            let iconClass = 'fas fa-user';
+            const role = contact['job'].toLowerCase();
+
+            if (role.includes('נהיגה')) {
+                iconClass = 'fas fa-car';
+            } else if (role.includes('לחימה')) {
+                iconClass = 'fas fa-crosshairs';
+            } else if (role.includes('הגנ״ש') || role.includes('הגנש')) {
+                iconClass = 'fas fa-shield';
+            } else if (role.includes('גששים')) {
+                iconClass = 'fas fa-search';
+            } else if (role.includes('אג״ם') || role.includes('אגם')) {
+                iconClass = 'fas fa-sitemap';
+            } else if (role.includes('לוגיסטיקה')) {
+                iconClass = 'fas fa-truck';
+            } else if (role.includes('שטחי אש')) {
+                iconClass = 'fas fa-map-marked-alt';
+            } else if (role.includes('הדרכה') || role.includes('קה״ד')) {
+                iconClass = 'fas fa-user-graduate';
+            } else if (role.includes('מפקד') || role.includes('סגן מפקד')) {
+                iconClass = 'fas fa-user-tie';
+            }
+
+            const phoneNumber = contact['number']?.replace(/[^\d+]/g, '') || '';
+            const formattedPhone = phoneNumber ? formatPhoneNumber(phoneNumber) : '';
+
+            const cardHTML = `
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div class="contact-icon">
+                            <i class="${iconClass}"></i>
+                        </div>
+                        <div class="contact-title">
+                            <h3>${contact['name']}</h3>
+                            <p>${contact['job']}</p>
+                        </div>
+                    </div>
+                    <div class="contact-details">
+                        ${phoneNumber ? `
+                            <div class="contact-info">
+                                <i class="fas fa-phone"></i>
+                                <div class="contact-text">
+                                    <strong>טלפון</strong>
+                                    <span><a href="tel:${phoneNumber}">${formattedPhone}</a></span>
+                                </div>
+                            </div>
+                        ` : ''}
+                        ${contact['email'] ? `
+                            <div class="contact-info">
+                                <i class="fas fa-envelope"></i>
+                                <div class="contact-text">
+                                    <strong>אימייל</strong>
+                                    <span><a href="mailto:${contact['email']}">${contact['email']}</a></span>
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+
+            contactGrid.innerHTML += cardHTML;
+        });
+    }
+
+    // Format phone number for display
+    function formatPhoneNumber(phoneNumber) {
+        // Clean the phone number (but keep the + sign if it exists)
+        let hasPlus = phoneNumber.startsWith('+');
+        let cleaned = phoneNumber.replace(/[^\d+]/g, '');
+
+        // International format with +972 (Israeli numbers)
+        if (cleaned.startsWith('+972') && cleaned.length >= 12) {
+            // +972 followed by the number without the leading 0
+            return '+972-' + cleaned.slice(4, 6) + '-' + cleaned.slice(6, 9) + '-' + cleaned.slice(9);
+        }
+
+        // Israeli format: 052-123-4567
+        if (cleaned.length === 10 && cleaned.startsWith('05')) {
+            return cleaned.slice(0, 3) + '-' + cleaned.slice(3, 6) + '-' + cleaned.slice(6);
+        }
+
+        // If the number doesn't fit the pattern, return as is
+        return phoneNumber;
+    }
+
+    // Load contacts when the page loads
+    document.addEventListener('DOMContentLoaded', fetchContacts);
+
+    // Menu functionality
     const menuBtn = document.querySelector('.menu-btn');
     const navMenu = document.querySelector('.nav-menu');
 
-    // Hide menu by default (add CSS to start with hidden menu)
+    // Hide menu by default
     navMenu.style.display = 'none';
 
     menuBtn.addEventListener('click', () => {
@@ -509,7 +400,7 @@
             navMenu.style.display = 'none';
         }
     });
-    
+
     // Add hover effect to nav items
     const navLinks = document.querySelectorAll('.nav-menu a');
     navLinks.forEach(link => {
@@ -529,5 +420,10 @@
     });
 </script>
 
+<div class="footer-container">
+    <div class="footer-content">
+        <div class="footer-text">© 2024 בא״פ לכיש - כל הזכויות שמורות</div>
+    </div>
+</div>
 </body>
 </html>
